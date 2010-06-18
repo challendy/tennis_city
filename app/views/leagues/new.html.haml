@@ -1,0 +1,41 @@
+%h2 Create New League
+
+- semantic_form_for @league do |form|
+  = form.error_messages
+  = form.input :name, :length, :as => :string
+  = form.input :start_date, :class => :datepicker
+    
+  -form.semantic_fields_for :teams do |team|
+    =team.input :user,  :as => :select,      :collection => get_users
+    
+  = form.buttons :commit
+
+
+
+
+
+
+
+
+/ - form_for @league do |f|  
+/   %ul
+/     = f.error_messages 
+/     %li
+/       = f.label "League Name"
+/       = f.text_field :name
+/     %li
+/       = f.label "League Length in weeks"
+/       = f.text_field :length    
+/     / %li
+/     /   = f.label "Start date"
+/     /   = calendar_date_select_tag "start_date"
+/     / %li
+/     /   = f.label "End date"
+/     /   = calendar_date_select_tag "end_date"
+/     %li
+/       = f.label "Users Email *Max of 10 users per league*"
+/       #teams
+/         = render :partial => 'teams', :collection => @league.teams
+/       / = add_user_link "Add a User"  
+/     %li
+/       = f.submit 'Create'

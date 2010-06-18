@@ -1,0 +1,34 @@
+!!! Strict
+%html
+  %head
+    %meta{ "http-equiv" => "content-type", "content" => "text/html;charset=UTF-8" }
+    %title Chris Hallendy
+    =stylesheet_link_tag :all
+    = formtastic_stylesheet_link_tag
+    = javascript_include_tag 'jquery'
+    
+  %body#dashboard
+    #container
+      #header-wrapper
+        #header
+          - flash.each do |name, msg|
+            = content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String)
+
+          -if user_signed_in?
+            .user_login_box
+              = "#{current_user.email} |"
+              = link_to 'My info', edit_user_registration_path |
+              = link_to 'Sign out', destroy_user_session_path
+
+          #nav
+            %ul
+              %li
+                %a#home{:href => "/"} Home
+              %li
+                %a#about{:href => "/"} About
+              %li
+                %a#contact{:href => "/"} Contact
+
+        #content-wrapper
+          = yield
+

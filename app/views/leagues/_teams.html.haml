@@ -1,0 +1,4 @@
+#team
+  - fields_for "league[team_attributes][]", teams  do |team_form|
+    =team_form.label "Users email:"
+    = team_form.text_field :user
