@@ -15,10 +15,8 @@ class LeaguesController < ApplicationController
   def create
     @league = League.create(params["league"])
     
-    raise params.to_yaml
     
-    @league = League.create(params["league"])
-    raise @league.u
+    raise
     @league.process_league_teams
     
   end

@@ -7146,3 +7146,2422 @@ ActionView::TemplateError (undefined method `text' for #<Formtastic::SemanticFor
 Rendered rescues/_trace (206.6ms)
 Rendered rescues/_request_and_response (0.6ms)
 Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mTeam Columns (53.4ms)[0m   [0;1mSHOW FIELDS FROM `teams`[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mBEGIN[0m
+  [4;36;1mTeam Create (0.5ms)[0m   [0;1mINSERT INTO `teams` (`name`, `league_id`, `last_weeks_points`, `created_at`, `updated_at`, `wins`, `total_points`, `user_id`, `loss`, `status`) VALUES(NULL, NULL, NULL, '2010-06-19 03:46:19', '2010-06-19 03:46:19', NULL, NULL, NULL, NULL, 'created')[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing DashboardController#index (for 127.0.0.1 at 2010-06-18 23:56:32) [GET]
+  Parameters: {"only"=>:index, "action"=>"index", "controller"=>"dashboard"}
+  [4;36;1mUser Load (32.7ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+  [4;35;1mUser Columns (1.8ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2010-06-18 23:56:32) [GET]
+  Parameters: {"unauthenticated"=>"true", "action"=>"new", "controller"=>"sessions"}
+  [4;36;1mUser Columns (1.8ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+Rendering template within layouts/application
+Rendering sessions/new
+Rendered shared/_devise_links (4.2ms)
+Completed in 169ms (View: 93, DB: 2) | 200 OK [http://localhost/users/sign_in?unauthenticated=true]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2010-06-18 23:57:01) [POST]
+  Parameters: {"commit"=>"Sign in", "action"=>"create", "authenticity_token"=>"OGjC0EZs9h6z13YQMvsD1YwFQEQn/rzNbynSSGSNfNE=", "controller"=>"sessions", "user"=>{"remember_me"=>"0", "password"=>"[FILTERED]", "email"=>"chris.hallendy@gmail.com"}}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+  [4;36;1mUser Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`email` = 'chris.hallendy@gmail.com') LIMIT 1[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Update (0.5ms)[0m   [0mUPDATE `users` SET `sign_in_count` = 9, `updated_at` = '2010-06-19 03:57:02', `last_sign_in_at` = '2010-06-18 21:29:02', `current_sign_in_at` = '2010-06-19 03:57:02' WHERE `id` = 1[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed in 553ms (DB: 4) | 302 Found [http://localhost/users/sign_in]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing DashboardController#index (for 127.0.0.1 at 2010-06-18 23:57:02) [GET]
+  Parameters: {"only"=>:index, "action"=>"index", "controller"=>"dashboard"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mUser Columns (1.7ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+Rendering template within layouts/dashboard
+Rendering dashboard/index
+  [4;35;1mleagues_users Columns (42.7ms)[0m   [0mSHOW FIELDS FROM `leagues_users`[0m
+  [4;36;1mLeague Load (39.0ms)[0m   [0;1mSELECT * FROM `leagues` INNER JOIN `leagues_users` ON `leagues`.id = `leagues_users`.league_id WHERE (`leagues_users`.user_id = 1 ) [0m
+  [4;35;1mLeague Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `leagues`[0m
+Completed in 335ms (View: 227, DB: 86) | 200 OK [http://localhost/]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-06-18 23:57:02) [GET]
+
+ActionController::RoutingError (No route matches "/javascripts/jquery.js" with {:method=>:get}):
+  warden (0.10.7) [v] lib/warden/manager.rb:35:in `call'
+  warden (0.10.7) [v] lib/warden/manager.rb:34:in `catch'
+  warden (0.10.7) [v] lib/warden/manager.rb:34:in `call'
+  haml (3.0.12) [v] rails/./lib/sass/plugin/rack.rb:41:in `call'
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing LeaguesController#new (for 127.0.0.1 at 2010-06-18 23:57:04) [GET]
+  Parameters: {"action"=>"new", "controller"=>"leagues"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;35;1mUser Columns (1.7ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mLeague Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `leagues`[0m
+  [4;35;1mTeam Columns (1.8ms)[0m   [0mSHOW FIELDS FROM `teams`[0m
+Rendering template within layouts/application
+Rendering leagues/new
+Rendered leagues/_teams (4.3ms)
+Rendered leagues/_teams (1.9ms)
+Rendered leagues/_teams (1.9ms)
+Rendered leagues/_teams (1.9ms)
+Rendered leagues/_teams (1.9ms)
+Rendered leagues/_teams (2.0ms)
+Rendered leagues/_teams (1.9ms)
+Rendered leagues/_teams (2.0ms)
+Rendered leagues/_teams (1.9ms)
+Rendered leagues/_teams (1.9ms)
+Completed in 136ms (View: 65, DB: 6) | 200 OK [http://localhost/leagues/new]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing LeaguesController#create (for 127.0.0.1 at 2010-06-18 23:57:21) [POST]
+  Parameters: {"commit"=>"Create", "action"=>"create", "authenticity_token"=>"OGjC0EZs9h6z13YQMvsD1YwFQEQn/rzNbynSSGSNfNE=", "controller"=>"leagues", "league"=>{"start_date"=>"das", "name"=>"Test", "team_attributes"=>[{"user_email"=>"dfsfsdf"}, {"user_email"=>""}, {"user_email"=>""}, {"user_email"=>""}, {"user_email"=>""}, {"user_email"=>""}, {"user_email"=>""}, {"user_email"=>""}, {"user_email"=>""}, {"user_email"=>""}], "length"=>"das"}}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;35;1mUser Columns (1.7ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mLeague Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `leagues`[0m
+
+ActiveRecord::UnknownAttributeError (unknown attribute: team_attributes):
+  app/controllers/leagues_controller.rb:16:in `create'
+  warden (0.10.7) [v] lib/warden/manager.rb:35:in `call'
+  warden (0.10.7) [v] lib/warden/manager.rb:34:in `catch'
+  warden (0.10.7) [v] lib/warden/manager.rb:34:in `call'
+  haml (3.0.12) [v] rails/./lib/sass/plugin/rack.rb:41:in `call'
+
+Rendered rescues/_trace (84.6ms)
+Rendered rescues/_request_and_response (3.5ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing LeaguesController#new (for 127.0.0.1 at 2010-06-18 23:58:09) [GET]
+  Parameters: {"action"=>"new", "controller"=>"leagues"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mUser Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mLeague Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `leagues`[0m
+  [4;36;1mTeam Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `teams`[0m
+Rendering template within layouts/application
+Rendering leagues/new
+Rendered leagues/_teams (2.2ms)
+Rendered leagues/_teams (1.9ms)
+Rendered leagues/_teams (2.0ms)
+Rendered leagues/_teams (1.9ms)
+Rendered leagues/_teams (1.9ms)
+Rendered leagues/_teams (1.9ms)
+Rendered leagues/_teams (1.8ms)
+Rendered leagues/_teams (1.8ms)
+Rendered leagues/_teams (1.9ms)
+Rendered leagues/_teams (1.8ms)
+Completed in 197ms (View: 126, DB: 5) | 200 OK [http://localhost/leagues/new]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing LeaguesController#new (for 127.0.0.1 at 2010-06-18 23:59:26) [GET]
+  Parameters: {"action"=>"new", "controller"=>"leagues"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mUser Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mLeague Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `leagues`[0m
+  [4;36;1mTeam Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `teams`[0m
+Rendering template within layouts/application
+Rendering leagues/new
+Rendered leagues/_teams (3.5ms)
+Rendered leagues/_teams (1.3ms)
+Rendered leagues/_teams (1.3ms)
+Rendered leagues/_teams (1.3ms)
+Rendered leagues/_teams (1.3ms)
+Rendered leagues/_teams (1.3ms)
+Rendered leagues/_teams (1.3ms)
+Rendered leagues/_teams (1.3ms)
+Rendered leagues/_teams (1.3ms)
+Rendered leagues/_teams (1.3ms)
+Completed in 108ms (View: 37, DB: 5) | 200 OK [http://localhost/leagues/new]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing LeaguesController#create (for 127.0.0.1 at 2010-06-18 23:59:28) [POST]
+  Parameters: {"commit"=>"Create", "teams"=>{"user_email"=>""}, "action"=>"create", "authenticity_token"=>"OGjC0EZs9h6z13YQMvsD1YwFQEQn/rzNbynSSGSNfNE=", "controller"=>"leagues", "league"=>{"start_date"=>"", "name"=>"", "length"=>""}}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mUser Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mLeague Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `leagues`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mLeague Create (0.3ms)[0m   [0mINSERT INTO `leagues` (`name`, `start_date`, `created_at`, `updated_at`, `manager`, `length`, `status`, `end_date`) VALUES('', NULL, '2010-06-19 03:59:28', '2010-06-19 03:59:28', NULL, '', 'created', NULL)[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mCOMMIT[0m
+
+RuntimeError (--- !map:HashWithIndifferentAccess 
+commit: Create
+teams: !map:HashWithIndifferentAccess 
+  user_email: ""
+authenticity_token: OGjC0EZs9h6z13YQMvsD1YwFQEQn/rzNbynSSGSNfNE=
+action: create
+league: !map:HashWithIndifferentAccess 
+  name: ""
+  start_date: ""
+  length: ""
+controller: leagues
+):
+  app/controllers/leagues_controller.rb:18:in `create'
+  warden (0.10.7) [v] lib/warden/manager.rb:35:in `call'
+  warden (0.10.7) [v] lib/warden/manager.rb:34:in `catch'
+  warden (0.10.7) [v] lib/warden/manager.rb:34:in `call'
+  haml (3.0.12) [v] rails/./lib/sass/plugin/rack.rb:41:in `call'
+
+Rendered rescues/_trace (75.1ms)
+Rendered rescues/_request_and_response (0.8ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing LeaguesController#create (for 127.0.0.1 at 2010-06-18 23:59:51) [POST]
+  Parameters: {"commit"=>"Create", "teams"=>{"user_email"=>""}, "action"=>"create", "authenticity_token"=>"OGjC0EZs9h6z13YQMvsD1YwFQEQn/rzNbynSSGSNfNE=", "controller"=>"leagues", "league"=>{"start_date"=>"dsfdf", "name"=>"dsfd", "length"=>"fdsfds"}}
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mUser Columns (1.7ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mLeague Columns (1.7ms)[0m   [0mSHOW FIELDS FROM `leagues`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mLeague Create (0.8ms)[0m   [0mINSERT INTO `leagues` (`name`, `start_date`, `created_at`, `updated_at`, `manager`, `length`, `status`, `end_date`) VALUES('dsfd', NULL, '2010-06-19 03:59:51', '2010-06-19 03:59:51', NULL, 'fdsfds', 'created', NULL)[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mCOMMIT[0m
+
+RuntimeError (--- !map:HashWithIndifferentAccess 
+commit: Create
+teams: !map:HashWithIndifferentAccess 
+  user_email: ""
+authenticity_token: OGjC0EZs9h6z13YQMvsD1YwFQEQn/rzNbynSSGSNfNE=
+action: create
+league: !map:HashWithIndifferentAccess 
+  name: dsfd
+  start_date: dsfdf
+  length: fdsfds
+controller: leagues
+):
+  app/controllers/leagues_controller.rb:18:in `create'
+  warden (0.10.7) [v] lib/warden/manager.rb:35:in `call'
+  warden (0.10.7) [v] lib/warden/manager.rb:34:in `catch'
+  warden (0.10.7) [v] lib/warden/manager.rb:34:in `call'
+  haml (3.0.12) [v] rails/./lib/sass/plugin/rack.rb:41:in `call'
+
+Rendered rescues/_trace (173.8ms)
+Rendered rescues/_request_and_response (0.9ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing LeaguesController#new (for 127.0.0.1 at 2010-06-19 00:00:30) [GET]
+  Parameters: {"action"=>"new", "controller"=>"leagues"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mUser Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mLeague Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `leagues`[0m
+  [4;36;1mTeam Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `teams`[0m
+Rendering template within layouts/application
+Rendering leagues/new
+  [4;35;1mSQL (31.8ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW TABLES[0m
+
+ActionView::TemplateError (undefined local variable or method `f' for #<ActionView::Base:0x1035f10f0>) on line #2 of app/views/leagues/_teams.html.haml:
+1: #team
+2:   - f.fields_for :teams  do |team_form|
+3:     =team_form.label "Users email:"
+4:     = team_form.text_field :user_email
+
+    app/views/leagues/_teams.html.haml:2:in `_run_haml_app47views47leagues47_teams46html46haml_locals_object_teams_teams_counter'
+    haml (3.0.12) [v] rails/./lib/haml/helpers/action_view_mods.rb:11:in `render'
+    haml (3.0.12) [v] rails/./lib/haml/helpers.rb:90:in `non_haml'
+    haml (3.0.12) [v] rails/./lib/haml/helpers/action_view_mods.rb:11:in `render'
+    app/views/leagues/new.html.haml:20:in `_run_haml_app47views47leagues47new46html46haml'
+    haml (3.0.12) [v] rails/./lib/haml/helpers/action_view_mods.rb:225:in `call'
+    haml (3.0.12) [v] rails/./lib/haml/helpers/action_view_mods.rb:225:in `form_for'
+    haml (3.0.12) [v] rails/./lib/haml/helpers.rb:588:in `call'
+    haml (3.0.12) [v] rails/./lib/haml/helpers.rb:588:in `haml_bind_proc'
+    haml (3.0.12) [v] rails/./lib/haml/helpers/action_view_mods.rb:231:in `form_for'
+    app/views/leagues/new.html.haml:2:in `_run_haml_app47views47leagues47new46html46haml'
+    haml (3.0.12) [v] rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    haml (3.0.12) [v] rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    warden (0.10.7) [v] lib/warden/manager.rb:35:in `call'
+    warden (0.10.7) [v] lib/warden/manager.rb:34:in `catch'
+    warden (0.10.7) [v] lib/warden/manager.rb:34:in `call'
+    haml (3.0.12) [v] rails/./lib/sass/plugin/rack.rb:41:in `call'
+
+Rendered rescues/_trace (232.3ms)
+Rendered rescues/_request_and_response (0.6ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing LeaguesController#new (for 127.0.0.1 at 2010-06-19 00:01:25) [GET]
+  Parameters: {"action"=>"new", "controller"=>"leagues"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;35;1mUser Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mLeague Columns (1.7ms)[0m   [0;1mSHOW FIELDS FROM `leagues`[0m
+  [4;35;1mTeam Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `teams`[0m
+Rendering template within layouts/application
+Rendering leagues/new
+
+ActionView::TemplateError (wrong number of arguments (0 for 1)) on line #2 of app/views/leagues/_teams.html.haml:
+1: #team
+2:   - form.fields_for :teams  do |team_form|
+3:     = team_form.label "Users email:"
+4:     = team_form.text_field :user_email
+
+    app/views/leagues/_teams.html.haml:2:in `form'
+    app/views/leagues/_teams.html.haml:2:in `_run_haml_app47views47leagues47_teams46html46haml_locals_object_teams'
+    haml (3.0.12) [v] rails/./lib/haml/helpers/action_view_mods.rb:11:in `render'
+    haml (3.0.12) [v] rails/./lib/haml/helpers.rb:90:in `non_haml'
+    haml (3.0.12) [v] rails/./lib/haml/helpers/action_view_mods.rb:11:in `render'
+    app/views/leagues/new.html.haml:20:in `_run_haml_app47views47leagues47new46html46haml'
+    haml (3.0.12) [v] rails/./lib/haml/helpers/action_view_mods.rb:225:in `call'
+    haml (3.0.12) [v] rails/./lib/haml/helpers/action_view_mods.rb:225:in `form_for'
+    haml (3.0.12) [v] rails/./lib/haml/helpers.rb:588:in `call'
+    haml (3.0.12) [v] rails/./lib/haml/helpers.rb:588:in `haml_bind_proc'
+    haml (3.0.12) [v] rails/./lib/haml/helpers/action_view_mods.rb:231:in `form_for'
+    app/views/leagues/new.html.haml:2:in `_run_haml_app47views47leagues47new46html46haml'
+    haml (3.0.12) [v] rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    haml (3.0.12) [v] rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    warden (0.10.7) [v] lib/warden/manager.rb:35:in `call'
+    warden (0.10.7) [v] lib/warden/manager.rb:34:in `catch'
+    warden (0.10.7) [v] lib/warden/manager.rb:34:in `call'
+    haml (3.0.12) [v] rails/./lib/sass/plugin/rack.rb:41:in `call'
+
+Rendered rescues/_trace (125.9ms)
+Rendered rescues/_request_and_response (0.6ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing LeaguesController#new (for 127.0.0.1 at 2010-06-19 00:03:54) [GET]
+  Parameters: {"action"=>"new", "controller"=>"leagues"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;35;1mUser Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mLeague Columns (1.7ms)[0m   [0;1mSHOW FIELDS FROM `leagues`[0m
+  [4;35;1mTeam Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `teams`[0m
+Rendering template within layouts/application
+Rendering leagues/new
+Rendered leagues/_teams (19.1ms)
+Completed in 223ms (View: 152, DB: 5) | 200 OK [http://localhost/leagues/new]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing LeaguesController#create (for 127.0.0.1 at 2010-06-19 00:04:07) [POST]
+  Parameters: {"commit"=>"Create", "action"=>"create", "authenticity_token"=>"OGjC0EZs9h6z13YQMvsD1YwFQEQn/rzNbynSSGSNfNE=", "controller"=>"leagues", "league"=>{"teams_attributes"=>{"6"=>{"user_email"=>""}, "7"=>{"user_email"=>""}, "8"=>{"user_email"=>""}, "9"=>{"user_email"=>""}, "0"=>{"user_email"=>"hfhgf"}, "1"=>{"user_email"=>"fhgh"}, "2"=>{"user_email"=>""}, "3"=>{"user_email"=>""}, "4"=>{"user_email"=>""}, "5"=>{"user_email"=>""}}, "start_date"=>"gfhg", "name"=>"gfhfh", "length"=>"fhgh"}}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;35;1mUser Columns (1.9ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mLeague Columns (1.7ms)[0m   [0;1mSHOW FIELDS FROM `leagues`[0m
+  [4;35;1mTeam Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `teams`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mLeague Create (0.3ms)[0m   [0mINSERT INTO `leagues` (`name`, `start_date`, `created_at`, `updated_at`, `manager`, `length`, `status`, `end_date`) VALUES('gfhfh', NULL, '2010-06-19 04:04:07', '2010-06-19 04:04:07', NULL, 'fhgh', 'created', NULL)[0m
+  [4;36;1mTeam Create (0.2ms)[0m   [0;1mINSERT INTO `teams` (`name`, `league_id`, `last_weeks_points`, `created_at`, `updated_at`, `wins`, `total_points`, `user_id`, `loss`, `status`) VALUES(NULL, 11, NULL, '2010-06-19 04:04:07', '2010-06-19 04:04:07', NULL, NULL, NULL, NULL, 'created')[0m
+  [4;35;1mTeam Create (0.2ms)[0m   [0mINSERT INTO `teams` (`name`, `league_id`, `last_weeks_points`, `created_at`, `updated_at`, `wins`, `total_points`, `user_id`, `loss`, `status`) VALUES(NULL, 11, NULL, '2010-06-19 04:04:07', '2010-06-19 04:04:07', NULL, NULL, NULL, NULL, 'created')[0m
+  [4;36;1mTeam Create (0.2ms)[0m   [0;1mINSERT INTO `teams` (`name`, `league_id`, `last_weeks_points`, `created_at`, `updated_at`, `wins`, `total_points`, `user_id`, `loss`, `status`) VALUES(NULL, 11, NULL, '2010-06-19 04:04:07', '2010-06-19 04:04:07', NULL, NULL, NULL, NULL, 'created')[0m
+  [4;35;1mTeam Create (0.2ms)[0m   [0mINSERT INTO `teams` (`name`, `league_id`, `last_weeks_points`, `created_at`, `updated_at`, `wins`, `total_points`, `user_id`, `loss`, `status`) VALUES(NULL, 11, NULL, '2010-06-19 04:04:07', '2010-06-19 04:04:07', NULL, NULL, NULL, NULL, 'created')[0m
+  [4;36;1mTeam Create (0.2ms)[0m   [0;1mINSERT INTO `teams` (`name`, `league_id`, `last_weeks_points`, `created_at`, `updated_at`, `wins`, `total_points`, `user_id`, `loss`, `status`) VALUES(NULL, 11, NULL, '2010-06-19 04:04:07', '2010-06-19 04:04:07', NULL, NULL, NULL, NULL, 'created')[0m
+  [4;35;1mTeam Create (0.2ms)[0m   [0mINSERT INTO `teams` (`name`, `league_id`, `last_weeks_points`, `created_at`, `updated_at`, `wins`, `total_points`, `user_id`, `loss`, `status`) VALUES(NULL, 11, NULL, '2010-06-19 04:04:07', '2010-06-19 04:04:07', NULL, NULL, NULL, NULL, 'created')[0m
+  [4;36;1mTeam Create (0.2ms)[0m   [0;1mINSERT INTO `teams` (`name`, `league_id`, `last_weeks_points`, `created_at`, `updated_at`, `wins`, `total_points`, `user_id`, `loss`, `status`) VALUES(NULL, 11, NULL, '2010-06-19 04:04:07', '2010-06-19 04:04:07', NULL, NULL, NULL, NULL, 'created')[0m
+  [4;35;1mTeam Create (0.2ms)[0m   [0mINSERT INTO `teams` (`name`, `league_id`, `last_weeks_points`, `created_at`, `updated_at`, `wins`, `total_points`, `user_id`, `loss`, `status`) VALUES(NULL, 11, NULL, '2010-06-19 04:04:07', '2010-06-19 04:04:07', NULL, NULL, NULL, NULL, 'created')[0m
+  [4;36;1mTeam Create (0.2ms)[0m   [0;1mINSERT INTO `teams` (`name`, `league_id`, `last_weeks_points`, `created_at`, `updated_at`, `wins`, `total_points`, `user_id`, `loss`, `status`) VALUES(NULL, 11, NULL, '2010-06-19 04:04:07', '2010-06-19 04:04:07', NULL, NULL, NULL, NULL, 'created')[0m
+  [4;35;1mTeam Create (0.2ms)[0m   [0mINSERT INTO `teams` (`name`, `league_id`, `last_weeks_points`, `created_at`, `updated_at`, `wins`, `total_points`, `user_id`, `loss`, `status`) VALUES(NULL, 11, NULL, '2010-06-19 04:04:07', '2010-06-19 04:04:07', NULL, NULL, NULL, NULL, 'created')[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mCOMMIT[0m
+
+RuntimeError (--- !map:HashWithIndifferentAccess 
+commit: Create
+authenticity_token: OGjC0EZs9h6z13YQMvsD1YwFQEQn/rzNbynSSGSNfNE=
+action: create
+league: !map:HashWithIndifferentAccess 
+  name: gfhfh
+  start_date: gfhg
+  teams_attributes: !map:HashWithIndifferentAccess 
+    "6": !map:HashWithIndifferentAccess 
+      user_email: ""
+    "7": !map:HashWithIndifferentAccess 
+      user_email: ""
+    "8": !map:HashWithIndifferentAccess 
+      user_email: ""
+    "9": !map:HashWithIndifferentAccess 
+      user_email: ""
+    "0": !map:HashWithIndifferentAccess 
+      user_email: hfhgf
+    "1": !map:HashWithIndifferentAccess 
+      user_email: fhgh
+    "2": !map:HashWithIndifferentAccess 
+      user_email: ""
+    "3": !map:HashWithIndifferentAccess 
+      user_email: ""
+    "4": !map:HashWithIndifferentAccess 
+      user_email: ""
+    "5": !map:HashWithIndifferentAccess 
+      user_email: ""
+  length: fhgh
+controller: leagues
+):
+  app/controllers/leagues_controller.rb:18:in `create'
+  warden (0.10.7) [v] lib/warden/manager.rb:35:in `call'
+  warden (0.10.7) [v] lib/warden/manager.rb:34:in `catch'
+  warden (0.10.7) [v] lib/warden/manager.rb:34:in `call'
+  haml (3.0.12) [v] rails/./lib/sass/plugin/rack.rb:41:in `call'
+
+Rendered rescues/_trace (74.7ms)
+Rendered rescues/_request_and_response (1.5ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing LeaguesController#new (for 127.0.0.1 at 2010-06-19 00:09:18) [GET]
+  Parameters: {"action"=>"new", "controller"=>"leagues"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mUser Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mLeague Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `leagues`[0m
+  [4;36;1mTeam Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `teams`[0m
+Rendering template within layouts/application
+Rendering leagues/new
+Rendered leagues/_teams (16.9ms)
+Completed in 99ms (View: 30, DB: 5) | 200 OK [http://localhost/leagues/new]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing LeaguesController#new (for 127.0.0.1 at 2010-06-19 00:13:27) [GET]
+  Parameters: {"action"=>"new", "controller"=>"leagues"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mUser Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mLeague Columns (1.8ms)[0m   [0mSHOW FIELDS FROM `leagues`[0m
+  [4;36;1mTeam Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `teams`[0m
+Rendering template within layouts/application
+Rendering leagues/new
+Rendered leagues/_teams (17.1ms)
+Completed in 218ms (View: 44, DB: 6) | 200 OK [http://localhost/leagues/new]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing LeaguesController#new (for 127.0.0.1 at 2010-06-19 00:13:56) [GET]
+  Parameters: {"action"=>"new", "controller"=>"leagues"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mUser Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mLeague Columns (1.7ms)[0m   [0mSHOW FIELDS FROM `leagues`[0m
+  [4;36;1mTeam Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `teams`[0m
+Rendering template within layouts/application
+Rendering leagues/new
+
+ActionView::TemplateError (Inconsistent indentation: 6 spaces were used for indentation, but the rest of the document was indented using 4 spaces.) on line #6 of app/views/leagues/new.html.haml:
+3:     %fieldset
+4:     = f.error_messages 
+5:     %p
+6:       = f.label "League Name"
+7:       = f.text_field :name
+8:     %p
+9:       = f.label "League Length in weeks"
+
+    app/views/leagues/new.html.haml:6
+    haml (3.0.12) [v] rails/./lib/haml/precompiler.rb:152:in `tabs'
+    haml (3.0.12) [v] rails/./lib/haml/precompiler.rb:134:in `instance_eval'
+    haml (3.0.12) [v] rails/./lib/haml/precompiler.rb:134:in `tabs'
+    haml (3.0.12) [v] rails/./lib/haml/precompiler.rb:1040:in `block_opened?'
+    haml (3.0.12) [v] rails/./lib/haml/precompiler.rb:768:in `render_tag'
+    haml (3.0.12) [v] rails/./lib/haml/precompiler.rb:214:in `process_line'
+    haml (3.0.12) [v] rails/./lib/haml/precompiler.rb:178:in `precompile'
+    haml (3.0.12) [v] rails/./lib/haml/engine.rb:121:in `initialize'
+    haml (3.0.12) [v] rails/./lib/haml/template/plugin.rb:29:in `new'
+    haml (3.0.12) [v] rails/./lib/haml/template/plugin.rb:29:in `compile'
+    haml (3.0.12) [v] rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    haml (3.0.12) [v] rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    warden (0.10.7) [v] lib/warden/manager.rb:35:in `call'
+    warden (0.10.7) [v] lib/warden/manager.rb:34:in `catch'
+    warden (0.10.7) [v] lib/warden/manager.rb:34:in `call'
+    haml (3.0.12) [v] rails/./lib/sass/plugin/rack.rb:41:in `call'
+
+Rendered rescues/_trace (107.5ms)
+Rendered rescues/_request_and_response (0.6ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing LeaguesController#new (for 127.0.0.1 at 2010-06-19 00:14:32) [GET]
+  Parameters: {"action"=>"new", "controller"=>"leagues"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mUser Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mLeague Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `leagues`[0m
+  [4;36;1mTeam Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `teams`[0m
+Rendering template within layouts/application
+Rendering leagues/new
+Rendered leagues/_teams (16.7ms)
+Completed in 112ms (View: 43, DB: 5) | 200 OK [http://localhost/leagues/new]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing LeaguesController#new (for 127.0.0.1 at 2010-06-19 00:14:52) [GET]
+  Parameters: {"action"=>"new", "controller"=>"leagues"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mUser Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mLeague Columns (1.7ms)[0m   [0mSHOW FIELDS FROM `leagues`[0m
+  [4;36;1mTeam Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `teams`[0m
+Rendering template within layouts/application
+Rendering leagues/new
+Rendered leagues/_teams (16.9ms)
+Completed in 114ms (View: 43, DB: 6) | 200 OK [http://localhost/leagues/new]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing LeaguesController#new (for 127.0.0.1 at 2010-06-19 00:15:49) [GET]
+  Parameters: {"action"=>"new", "controller"=>"leagues"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mUser Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mLeague Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `leagues`[0m
+  [4;36;1mTeam Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `teams`[0m
+Rendering template within layouts/application
+Rendering leagues/new
+Rendered leagues/_teams (17.5ms)
+Completed in 202ms (View: 132, DB: 5) | 200 OK [http://localhost/leagues/new]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing LeaguesController#new (for 127.0.0.1 at 2010-06-19 00:17:26) [GET]
+  Parameters: {"action"=>"new", "controller"=>"leagues"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mUser Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mLeague Columns (1.8ms)[0m   [0mSHOW FIELDS FROM `leagues`[0m
+  [4;36;1mTeam Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `teams`[0m
+Rendering template within layouts/application
+Rendering leagues/new
+Rendered leagues/_teams (18.3ms)
+Completed in 102ms (View: 32, DB: 6) | 200 OK [http://localhost/leagues/new]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing LeaguesController#new (for 127.0.0.1 at 2010-06-19 00:17:39) [GET]
+  Parameters: {"action"=>"new", "controller"=>"leagues"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mUser Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mLeague Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `leagues`[0m
+  [4;36;1mTeam Columns (1.7ms)[0m   [0;1mSHOW FIELDS FROM `teams`[0m
+Rendering template within layouts/application
+Rendering leagues/new
+Rendered leagues/_teams (17.1ms)
+Completed in 194ms (View: 31, DB: 5) | 200 OK [http://localhost/leagues/new]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing LeaguesController#new (for 127.0.0.1 at 2010-06-19 00:18:24) [GET]
+  Parameters: {"action"=>"new", "controller"=>"leagues"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mUser Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mLeague Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `leagues`[0m
+  [4;36;1mTeam Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `teams`[0m
+Rendering template within layouts/application
+Rendering leagues/new
+Rendered leagues/_teams (17.0ms)
+Completed in 102ms (View: 31, DB: 5) | 200 OK [http://localhost/leagues/new]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing LeaguesController#new (for 127.0.0.1 at 2010-06-19 00:18:33) [GET]
+  Parameters: {"action"=>"new", "controller"=>"leagues"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mUser Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mLeague Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `leagues`[0m
+  [4;36;1mTeam Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `teams`[0m
+Rendering template within layouts/application
+Rendering leagues/new
+Rendered leagues/_teams (17.0ms)
+Completed in 195ms (View: 31, DB: 5) | 200 OK [http://localhost/leagues/new]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing LeaguesController#new (for 127.0.0.1 at 2010-06-19 00:20:16) [GET]
+  Parameters: {"action"=>"new", "controller"=>"leagues"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mUser Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mLeague Columns (1.9ms)[0m   [0mSHOW FIELDS FROM `leagues`[0m
+  [4;36;1mTeam Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `teams`[0m
+Rendering template within layouts/application
+Rendering leagues/new
+Rendered leagues/_teams (17.2ms)
+Completed in 101ms (View: 31, DB: 6) | 200 OK [http://localhost/leagues/new]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing DashboardController#index (for 127.0.0.1 at 2010-06-19 00:20:25) [GET]
+  Parameters: {"only"=>:index, "action"=>"index", "controller"=>"dashboard"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mUser Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+Rendering template within layouts/dashboard
+Rendering dashboard/index
+  [4;35;1mleagues_users Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `leagues_users`[0m
+  [4;36;1mLeague Load (0.4ms)[0m   [0;1mSELECT * FROM `leagues` INNER JOIN `leagues_users` ON `leagues`.id = `leagues_users`.league_id WHERE (`leagues_users`.user_id = 1 ) [0m
+  [4;35;1mLeague Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `leagues`[0m
+Completed in 173ms (View: 146, DB: 5) | 200 OK [http://localhost/]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing LeaguesController#new (for 127.0.0.1 at 2010-06-19 00:20:27) [GET]
+  Parameters: {"action"=>"new", "controller"=>"leagues"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;35;1mUser Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mLeague Columns (1.7ms)[0m   [0;1mSHOW FIELDS FROM `leagues`[0m
+  [4;35;1mTeam Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `teams`[0m
+Rendering template within layouts/application
+Rendering leagues/new
+Rendered leagues/_teams (17.4ms)
+Completed in 101ms (View: 31, DB: 5) | 200 OK [http://localhost/leagues/new]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing LeaguesController#new (for 127.0.0.1 at 2010-06-19 00:20:48) [GET]
+  Parameters: {"action"=>"new", "controller"=>"leagues"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;35;1mUser Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mLeague Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `leagues`[0m
+  [4;35;1mTeam Columns (1.9ms)[0m   [0mSHOW FIELDS FROM `teams`[0m
+Rendering template within layouts/application
+Rendering leagues/new
+Rendered leagues/_teams (17.2ms)
+Completed in 194ms (View: 32, DB: 6) | 200 OK [http://localhost/leagues/new]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing LeaguesController#create (for 127.0.0.1 at 2010-06-19 00:20:50) [POST]
+  Parameters: {"commit"=>"Create", "action"=>"create", "authenticity_token"=>"OGjC0EZs9h6z13YQMvsD1YwFQEQn/rzNbynSSGSNfNE=", "controller"=>"leagues", "league"=>{"teams_attributes"=>{"6"=>{"user_email"=>""}, "7"=>{"user_email"=>""}, "8"=>{"user_email"=>""}, "9"=>{"user_email"=>""}, "0"=>{"user_email"=>""}, "1"=>{"user_email"=>""}, "2"=>{"user_email"=>""}, "3"=>{"user_email"=>""}, "4"=>{"user_email"=>""}, "5"=>{"user_email"=>""}}, "start_date"=>"", "name"=>"", "length"=>""}}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;35;1mUser Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mLeague Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `leagues`[0m
+  [4;35;1mTeam Columns (1.7ms)[0m   [0mSHOW FIELDS FROM `teams`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mLeague Create (0.3ms)[0m   [0mINSERT INTO `leagues` (`name`, `start_date`, `created_at`, `updated_at`, `manager`, `length`, `status`, `end_date`) VALUES('', NULL, '2010-06-19 04:20:50', '2010-06-19 04:20:50', NULL, '', 'created', NULL)[0m
+  [4;36;1mTeam Create (0.2ms)[0m   [0;1mINSERT INTO `teams` (`name`, `league_id`, `last_weeks_points`, `created_at`, `updated_at`, `wins`, `total_points`, `user_id`, `loss`, `status`) VALUES(NULL, 12, NULL, '2010-06-19 04:20:50', '2010-06-19 04:20:50', NULL, NULL, NULL, NULL, 'created')[0m
+  [4;35;1mTeam Create (0.2ms)[0m   [0mINSERT INTO `teams` (`name`, `league_id`, `last_weeks_points`, `created_at`, `updated_at`, `wins`, `total_points`, `user_id`, `loss`, `status`) VALUES(NULL, 12, NULL, '2010-06-19 04:20:50', '2010-06-19 04:20:50', NULL, NULL, NULL, NULL, 'created')[0m
+  [4;36;1mTeam Create (0.2ms)[0m   [0;1mINSERT INTO `teams` (`name`, `league_id`, `last_weeks_points`, `created_at`, `updated_at`, `wins`, `total_points`, `user_id`, `loss`, `status`) VALUES(NULL, 12, NULL, '2010-06-19 04:20:50', '2010-06-19 04:20:50', NULL, NULL, NULL, NULL, 'created')[0m
+  [4;35;1mTeam Create (0.2ms)[0m   [0mINSERT INTO `teams` (`name`, `league_id`, `last_weeks_points`, `created_at`, `updated_at`, `wins`, `total_points`, `user_id`, `loss`, `status`) VALUES(NULL, 12, NULL, '2010-06-19 04:20:50', '2010-06-19 04:20:50', NULL, NULL, NULL, NULL, 'created')[0m
+  [4;36;1mTeam Create (0.3ms)[0m   [0;1mINSERT INTO `teams` (`name`, `league_id`, `last_weeks_points`, `created_at`, `updated_at`, `wins`, `total_points`, `user_id`, `loss`, `status`) VALUES(NULL, 12, NULL, '2010-06-19 04:20:50', '2010-06-19 04:20:50', NULL, NULL, NULL, NULL, 'created')[0m
+  [4;35;1mTeam Create (0.3ms)[0m   [0mINSERT INTO `teams` (`name`, `league_id`, `last_weeks_points`, `created_at`, `updated_at`, `wins`, `total_points`, `user_id`, `loss`, `status`) VALUES(NULL, 12, NULL, '2010-06-19 04:20:50', '2010-06-19 04:20:50', NULL, NULL, NULL, NULL, 'created')[0m
+  [4;36;1mTeam Create (0.2ms)[0m   [0;1mINSERT INTO `teams` (`name`, `league_id`, `last_weeks_points`, `created_at`, `updated_at`, `wins`, `total_points`, `user_id`, `loss`, `status`) VALUES(NULL, 12, NULL, '2010-06-19 04:20:50', '2010-06-19 04:20:50', NULL, NULL, NULL, NULL, 'created')[0m
+  [4;35;1mTeam Create (0.2ms)[0m   [0mINSERT INTO `teams` (`name`, `league_id`, `last_weeks_points`, `created_at`, `updated_at`, `wins`, `total_points`, `user_id`, `loss`, `status`) VALUES(NULL, 12, NULL, '2010-06-19 04:20:50', '2010-06-19 04:20:50', NULL, NULL, NULL, NULL, 'created')[0m
+  [4;36;1mTeam Create (0.2ms)[0m   [0;1mINSERT INTO `teams` (`name`, `league_id`, `last_weeks_points`, `created_at`, `updated_at`, `wins`, `total_points`, `user_id`, `loss`, `status`) VALUES(NULL, 12, NULL, '2010-06-19 04:20:50', '2010-06-19 04:20:50', NULL, NULL, NULL, NULL, 'created')[0m
+  [4;35;1mTeam Create (0.2ms)[0m   [0mINSERT INTO `teams` (`name`, `league_id`, `last_weeks_points`, `created_at`, `updated_at`, `wins`, `total_points`, `user_id`, `loss`, `status`) VALUES(NULL, 12, NULL, '2010-06-19 04:20:50', '2010-06-19 04:20:50', NULL, NULL, NULL, NULL, 'created')[0m
+  [4;36;1mSQL (132.2ms)[0m   [0;1mCOMMIT[0m
+
+RuntimeError (--- !map:HashWithIndifferentAccess 
+commit: Create
+authenticity_token: OGjC0EZs9h6z13YQMvsD1YwFQEQn/rzNbynSSGSNfNE=
+action: create
+league: !map:HashWithIndifferentAccess 
+  name: ""
+  start_date: ""
+  teams_attributes: !map:HashWithIndifferentAccess 
+    "6": !map:HashWithIndifferentAccess 
+      user_email: ""
+    "7": !map:HashWithIndifferentAccess 
+      user_email: ""
+    "8": !map:HashWithIndifferentAccess 
+      user_email: ""
+    "9": !map:HashWithIndifferentAccess 
+      user_email: ""
+    "0": !map:HashWithIndifferentAccess 
+      user_email: ""
+    "1": !map:HashWithIndifferentAccess 
+      user_email: ""
+    "2": !map:HashWithIndifferentAccess 
+      user_email: ""
+    "3": !map:HashWithIndifferentAccess 
+      user_email: ""
+    "4": !map:HashWithIndifferentAccess 
+      user_email: ""
+    "5": !map:HashWithIndifferentAccess 
+      user_email: ""
+  length: ""
+controller: leagues
+):
+  app/controllers/leagues_controller.rb:18:in `create'
+  warden (0.10.7) [v] lib/warden/manager.rb:35:in `call'
+  warden (0.10.7) [v] lib/warden/manager.rb:34:in `catch'
+  warden (0.10.7) [v] lib/warden/manager.rb:34:in `call'
+  haml (3.0.12) [v] rails/./lib/sass/plugin/rack.rb:41:in `call'
+
+Rendered rescues/_trace (75.0ms)
+Rendered rescues/_request_and_response (1.4ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing LeaguesController#create (for 127.0.0.1 at 2010-06-19 00:23:24) [POST]
+  Parameters: {"commit"=>"Create", "action"=>"create", "authenticity_token"=>"OGjC0EZs9h6z13YQMvsD1YwFQEQn/rzNbynSSGSNfNE=", "controller"=>"leagues", "league"=>{"teams_attributes"=>{"6"=>{"user_email"=>""}, "7"=>{"user_email"=>""}, "8"=>{"user_email"=>""}, "9"=>{"user_email"=>""}, "0"=>{"user_email"=>"chris"}, "1"=>{"user_email"=>""}, "2"=>{"user_email"=>""}, "3"=>{"user_email"=>""}, "4"=>{"user_email"=>""}, "5"=>{"user_email"=>""}}, "start_date"=>"", "name"=>"", "length"=>""}}
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mUser Columns (1.8ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mLeague Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `leagues`[0m
+  [4;36;1mTeam Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `teams`[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mLeague Create (0.3ms)[0m   [0;1mINSERT INTO `leagues` (`name`, `start_date`, `created_at`, `updated_at`, `manager`, `length`, `status`, `end_date`) VALUES('', NULL, '2010-06-19 04:23:24', '2010-06-19 04:23:24', NULL, '', 'created', NULL)[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mROLLBACK[0m
+
+RuntimeError ("chris"):
+  app/models/team.rb:45:in `process_user_email'
+  app/controllers/leagues_controller.rb:16:in `create'
+  warden (0.10.7) [v] lib/warden/manager.rb:35:in `call'
+  warden (0.10.7) [v] lib/warden/manager.rb:34:in `catch'
+  warden (0.10.7) [v] lib/warden/manager.rb:34:in `call'
+  haml (3.0.12) [v] rails/./lib/sass/plugin/rack.rb:41:in `call'
+
+Rendered rescues/_trace (148.0ms)
+Rendered rescues/_request_and_response (1.4ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (4.6ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing DashboardController#index (for 127.0.0.1 at 2010-06-19 21:55:12) [GET]
+  Parameters: {"only"=>:index, "action"=>"index", "controller"=>"dashboard"}
+  [4;36;1mUser Load (72.6ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+  [4;35;1mUser Columns (2.2ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2010-06-19 21:55:13) [GET]
+  Parameters: {"unauthenticated"=>"true", "action"=>"new", "controller"=>"sessions"}
+  [4;36;1mUser Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+Rendering template within layouts/application
+Rendering sessions/new
+Rendered shared/_devise_links (3.8ms)
+Completed in 118ms (View: 90, DB: 2) | 200 OK [http://localhost/users/sign_in?unauthenticated=true]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2010-06-19 21:55:27) [POST]
+  Parameters: {"commit"=>"Sign in", "action"=>"create", "authenticity_token"=>"DHWSSPsrEycLeYpEDvpSSJBwPFemUtLtp/5boYM6BX8=", "controller"=>"sessions", "user"=>{"remember_me"=>"0", "password"=>"[FILTERED]", "email"=>"chris.hallendy@gmail.com"}}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+  [4;36;1mUser Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`email` = 'chris.hallendy@gmail.com') LIMIT 1[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Update (0.6ms)[0m   [0mUPDATE `users` SET `sign_in_count` = 10, `updated_at` = '2010-06-20 01:55:27', `last_sign_in_at` = '2010-06-19 03:57:02', `current_sign_in_at` = '2010-06-20 01:55:27' WHERE `id` = 1[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed in 288ms (DB: 4) | 302 Found [http://localhost/users/sign_in]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing DashboardController#index (for 127.0.0.1 at 2010-06-19 21:55:28) [GET]
+  Parameters: {"only"=>:index, "action"=>"index", "controller"=>"dashboard"}
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mUser Columns (1.8ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+Rendering template within layouts/dashboard
+Rendering dashboard/index
+  [4;35;1mleagues_users Columns (44.4ms)[0m   [0mSHOW FIELDS FROM `leagues_users`[0m
+  [4;36;1mLeague Load (38.2ms)[0m   [0;1mSELECT * FROM `leagues` INNER JOIN `leagues_users` ON `leagues`.id = `leagues_users`.league_id WHERE (`leagues_users`.user_id = 1 ) [0m
+  [4;35;1mLeague Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `leagues`[0m
+Completed in 299ms (View: 190, DB: 87) | 200 OK [http://localhost/]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing LeaguesController#new (for 127.0.0.1 at 2010-06-19 21:55:30) [GET]
+  Parameters: {"action"=>"new", "controller"=>"leagues"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;35;1mUser Columns (1.8ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mLeague Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `leagues`[0m
+
+SyntaxError (/Users/challendy/Projects/tenniscity/app/models/team.rb:32: syntax error, unexpected tASSOC, expecting kEND
+     self.user => User.find_user_email(user_email)
+                 ^):
+  app/controllers/leagues_controller.rb:10:in `new'
+  app/controllers/leagues_controller.rb:9:in `times'
+  app/controllers/leagues_controller.rb:9:in `new'
+  warden (0.10.7) [v] lib/warden/manager.rb:35:in `call'
+  warden (0.10.7) [v] lib/warden/manager.rb:34:in `catch'
+  warden (0.10.7) [v] lib/warden/manager.rb:34:in `call'
+  haml (3.0.12) [v] rails/./lib/sass/plugin/rack.rb:41:in `call'
+
+Rendered rescues/_trace (103.4ms)
+Rendered rescues/_request_and_response (3.0ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing LeaguesController#new (for 127.0.0.1 at 2010-06-19 21:55:50) [GET]
+  Parameters: {"action"=>"new", "controller"=>"leagues"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mUser Columns (1.7ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mLeague Columns (1.7ms)[0m   [0mSHOW FIELDS FROM `leagues`[0m
+  [4;36;1mTeam Columns (41.0ms)[0m   [0;1mSHOW FIELDS FROM `teams`[0m
+Rendering template within layouts/application
+Rendering leagues/new
+Rendered leagues/_teams (18.9ms)
+Completed in 168ms (View: 57, DB: 45) | 200 OK [http://localhost/leagues/new]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing LeaguesController#create (for 127.0.0.1 at 2010-06-19 21:56:11) [POST]
+  Parameters: {"commit"=>"Create", "action"=>"create", "authenticity_token"=>"DHWSSPsrEycLeYpEDvpSSJBwPFemUtLtp/5boYM6BX8=", "controller"=>"leagues", "league"=>{"teams_attributes"=>{"6"=>{"user_email"=>""}, "7"=>{"user_email"=>""}, "8"=>{"user_email"=>""}, "9"=>{"user_email"=>""}, "0"=>{"user_email"=>"chris.hallendy@gmail.com"}, "1"=>{"user_email"=>""}, "2"=>{"user_email"=>""}, "3"=>{"user_email"=>""}, "4"=>{"user_email"=>""}, "5"=>{"user_email"=>""}}, "start_date"=>"1", "name"=>"Test", "length"=>"10"}}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mUser Columns (17.0ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mLeague Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `leagues`[0m
+  [4;36;1mTeam Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `teams`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mLeague Create (0.4ms)[0m   [0;1mINSERT INTO `leagues` (`name`, `start_date`, `created_at`, `updated_at`, `manager`, `length`, `status`, `end_date`) VALUES('Test', NULL, '2010-06-20 01:56:11', '2010-06-20 01:56:11', NULL, '10', 'created', NULL)[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (50.9ms)[0m   [0;1mSHOW TABLES[0m
+
+NoMethodError (undefined method `find_user_email' for #<Class:0x1033d48d0>):
+  app/models/team.rb:32:in `process_user_email'
+  app/controllers/leagues_controller.rb:16:in `create'
+  warden (0.10.7) [v] lib/warden/manager.rb:35:in `call'
+  warden (0.10.7) [v] lib/warden/manager.rb:34:in `catch'
+  warden (0.10.7) [v] lib/warden/manager.rb:34:in `call'
+  haml (3.0.12) [v] rails/./lib/sass/plugin/rack.rb:41:in `call'
+
+Rendered rescues/_trace (148.4ms)
+Rendered rescues/_request_and_response (1.8ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing LeaguesController#create (for 127.0.0.1 at 2010-06-19 21:56:42) [POST]
+  Parameters: {"commit"=>"Create", "action"=>"create", "authenticity_token"=>"DHWSSPsrEycLeYpEDvpSSJBwPFemUtLtp/5boYM6BX8=", "controller"=>"leagues", "league"=>{"teams_attributes"=>{"6"=>{"user_email"=>""}, "7"=>{"user_email"=>""}, "8"=>{"user_email"=>""}, "9"=>{"user_email"=>""}, "0"=>{"user_email"=>"chris.hallendy@gmail.com"}, "1"=>{"user_email"=>""}, "2"=>{"user_email"=>""}, "3"=>{"user_email"=>""}, "4"=>{"user_email"=>""}, "5"=>{"user_email"=>""}}, "start_date"=>"1", "name"=>"Test", "length"=>"10"}}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mUser Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mLeague Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `leagues`[0m
+  [4;36;1mTeam Columns (1.7ms)[0m   [0;1mSHOW FIELDS FROM `teams`[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mBEGIN[0m
+  [4;36;1mLeague Create (0.3ms)[0m   [0;1mINSERT INTO `leagues` (`name`, `start_date`, `created_at`, `updated_at`, `manager`, `length`, `status`, `end_date`) VALUES('Test', NULL, '2010-06-20 01:56:42', '2010-06-20 01:56:42', NULL, '10', 'created', NULL)[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mROLLBACK[0m
+
+SystemStackError (stack level too deep):
+  app/models/team.rb:33:in `process_user_email'
+  app/models/team.rb:33:in `process_user_email'
+  app/models/team.rb:33:in `process_user_email'
+  app/models/team.rb:33:in `process_user_email'
+  app/models/team.rb:33:in `process_user_email'
+  app/models/team.rb:33:in `process_user_email'
+  app/models/team.rb:33:in `process_user_email'
+  app/models/team.rb:33:in `process_user_email'
+  app/models/team.rb:33:in `process_user_email'
+  app/models/team.rb:33:in `process_user_email'
+  app/models/team.rb:33:in `process_user_email'
+  app/models/team.rb:33:in `process_user_email'
+  app/models/team.rb:33:in `process_user_email'
+  app/models/team.rb:33:in `process_user_email'
+  app/models/team.rb:33:in `process_user_email'
+  app/models/team.rb:33:in `process_user_email'
+  app/models/team.rb:33:in `process_user_email'
+  app/models/team.rb:33:in `process_user_email'
+  app/models/team.rb:33:in `process_user_email'
+  app/models/team.rb:33:in `process_user_email'
+  app/models/team.rb:33:in `process_user_email'
+  app/models/team.rb:33:in `process_user_email'
+  app/models/team.rb:33:in `process_user_email'
+  app/models/team.rb:33:in `process_user_email'
+  app/models/team.rb:33:in `process_user_email'
+  app/models/team.rb:33:in `process_user_email'
+  app/models/team.rb:33:in `process_user_email'
+  app/models/team.rb:33:in `process_user_email'
+  app/models/team.rb:33:in `process_user_email'
+  app/models/team.rb:33:in `process_user_email'
+  app/models/team.rb:33:in `process_user_email'
+  app/models/team.rb:33:in `process_user_email'
+  app/models/team.rb:33:in `process_user_email'
+  app/models/team.rb:33:in `process_user_email'
+  app/models/team.rb:33:in `process_user_email'
+  app/models/team.rb:33:in `process_user_email'
+  app/models/team.rb:33:in `process_user_email'
+  app/models/team.rb:33:in `process_user_email'
+  app/controllers/leagues_controller.rb:16:in `create'
+  warden (0.10.7) [v] lib/warden/manager.rb:35:in `call'
+  warden (0.10.7) [v] lib/warden/manager.rb:34:in `catch'
+  warden (0.10.7) [v] lib/warden/manager.rb:34:in `call'
+  haml (3.0.12) [v] rails/./lib/sass/plugin/rack.rb:41:in `call'
+
+Rendered rescues/_trace (2001.8ms)
+Rendered rescues/_request_and_response (1.4ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing LeaguesController#create (for 127.0.0.1 at 2010-06-19 21:56:49) [POST]
+  Parameters: {"commit"=>"Create", "action"=>"create", "authenticity_token"=>"DHWSSPsrEycLeYpEDvpSSJBwPFemUtLtp/5boYM6BX8=", "controller"=>"leagues", "league"=>{"teams_attributes"=>{"6"=>{"user_email"=>""}, "7"=>{"user_email"=>""}, "8"=>{"user_email"=>""}, "9"=>{"user_email"=>""}, "0"=>{"user_email"=>"chris.hallendy@gmail.com"}, "1"=>{"user_email"=>""}, "2"=>{"user_email"=>""}, "3"=>{"user_email"=>""}, "4"=>{"user_email"=>""}, "5"=>{"user_email"=>""}}, "start_date"=>"1", "name"=>"Test", "length"=>"10"}}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mUser Columns (2.0ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mLeague Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `leagues`[0m
+  [4;36;1mTeam Columns (1.7ms)[0m   [0;1mSHOW FIELDS FROM `teams`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mLeague Create (0.3ms)[0m   [0;1mINSERT INTO `leagues` (`name`, `start_date`, `created_at`, `updated_at`, `manager`, `length`, `status`, `end_date`) VALUES('Test', NULL, '2010-06-20 01:56:49', '2010-06-20 01:56:49', NULL, '10', 'created', NULL)[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mROLLBACK[0m
+
+SystemStackError (stack level too deep):
+  app/models/team.rb:33:in `process_user_email'
+  app/models/team.rb:33:in `process_user_email'
+  app/models/team.rb:33:in `process_user_email'
+  app/models/team.rb:33:in `process_user_email'
+  app/models/team.rb:33:in `process_user_email'
+  app/models/team.rb:33:in `process_user_email'
+  app/models/team.rb:33:in `process_user_email'
+  app/models/team.rb:33:in `process_user_email'
+  app/models/team.rb:33:in `process_user_email'
+  app/models/team.rb:33:in `process_user_email'
+  app/models/team.rb:33:in `process_user_email'
+  app/models/team.rb:33:in `process_user_email'
+  app/models/team.rb:33:in `process_user_email'
+  app/models/team.rb:33:in `process_user_email'
+  app/models/team.rb:33:in `process_user_email'
+  app/models/team.rb:33:in `process_user_email'
+  app/models/team.rb:33:in `process_user_email'
+  app/models/team.rb:33:in `process_user_email'
+  app/models/team.rb:33:in `process_user_email'
+  app/models/team.rb:33:in `process_user_email'
+  app/models/team.rb:33:in `process_user_email'
+  app/models/team.rb:33:in `process_user_email'
+  app/models/team.rb:33:in `process_user_email'
+  app/models/team.rb:33:in `process_user_email'
+  app/models/team.rb:33:in `process_user_email'
+  app/models/team.rb:33:in `process_user_email'
+  app/models/team.rb:33:in `process_user_email'
+  app/models/team.rb:33:in `process_user_email'
+  app/models/team.rb:33:in `process_user_email'
+  app/models/team.rb:33:in `process_user_email'
+  app/models/team.rb:33:in `process_user_email'
+  app/models/team.rb:33:in `process_user_email'
+  app/models/team.rb:33:in `process_user_email'
+  app/models/team.rb:33:in `process_user_email'
+  app/models/team.rb:33:in `process_user_email'
+  app/models/team.rb:33:in `process_user_email'
+  app/models/team.rb:33:in `process_user_email'
+  app/models/team.rb:33:in `process_user_email'
+  app/controllers/leagues_controller.rb:16:in `create'
+  warden (0.10.7) [v] lib/warden/manager.rb:35:in `call'
+  warden (0.10.7) [v] lib/warden/manager.rb:34:in `catch'
+  warden (0.10.7) [v] lib/warden/manager.rb:34:in `call'
+  haml (3.0.12) [v] rails/./lib/sass/plugin/rack.rb:41:in `call'
+
+Rendered rescues/_trace (1980.0ms)
+Rendered rescues/_request_and_response (1.4ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing LeaguesController#create (for 127.0.0.1 at 2010-06-19 21:57:39) [POST]
+  Parameters: {"commit"=>"Create", "action"=>"create", "authenticity_token"=>"DHWSSPsrEycLeYpEDvpSSJBwPFemUtLtp/5boYM6BX8=", "controller"=>"leagues", "league"=>{"teams_attributes"=>{"6"=>{"user_email"=>""}, "7"=>{"user_email"=>""}, "8"=>{"user_email"=>""}, "9"=>{"user_email"=>""}, "0"=>{"user_email"=>"chris.hallendy@gmail.com"}, "1"=>{"user_email"=>""}, "2"=>{"user_email"=>""}, "3"=>{"user_email"=>""}, "4"=>{"user_email"=>""}, "5"=>{"user_email"=>""}}, "start_date"=>"1", "name"=>"Test", "length"=>"10"}}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mUser Columns (1.7ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mLeague Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `leagues`[0m
+  [4;36;1mTeam Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `teams`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mLeague Create (0.3ms)[0m   [0;1mINSERT INTO `leagues` (`name`, `start_date`, `created_at`, `updated_at`, `manager`, `length`, `status`, `end_date`) VALUES('Test', NULL, '2010-06-20 01:57:39', '2010-06-20 01:57:39', NULL, '10', 'created', NULL)[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mROLLBACK[0m
+
+TypeError (exception class/object expected):
+  app/models/team.rb:33:in `raise'
+  app/models/team.rb:33:in `process_user_email'
+  app/controllers/leagues_controller.rb:16:in `create'
+  warden (0.10.7) [v] lib/warden/manager.rb:35:in `call'
+  warden (0.10.7) [v] lib/warden/manager.rb:34:in `catch'
+  warden (0.10.7) [v] lib/warden/manager.rb:34:in `call'
+  haml (3.0.12) [v] rails/./lib/sass/plugin/rack.rb:41:in `call'
+
+Rendered rescues/_trace (145.6ms)
+Rendered rescues/_request_and_response (1.4ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing LeaguesController#create (for 127.0.0.1 at 2010-06-19 21:58:13) [POST]
+  Parameters: {"commit"=>"Create", "action"=>"create", "authenticity_token"=>"DHWSSPsrEycLeYpEDvpSSJBwPFemUtLtp/5boYM6BX8=", "controller"=>"leagues", "league"=>{"teams_attributes"=>{"6"=>{"user_email"=>""}, "7"=>{"user_email"=>""}, "8"=>{"user_email"=>""}, "9"=>{"user_email"=>""}, "0"=>{"user_email"=>"chris.hallendy@gmail.com"}, "1"=>{"user_email"=>""}, "2"=>{"user_email"=>""}, "3"=>{"user_email"=>""}, "4"=>{"user_email"=>""}, "5"=>{"user_email"=>""}}, "start_date"=>"1", "name"=>"Test", "length"=>"10"}}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mUser Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mLeague Columns (1.9ms)[0m   [0mSHOW FIELDS FROM `leagues`[0m
+  [4;36;1mTeam Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `teams`[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mBEGIN[0m
+  [4;36;1mLeague Create (0.4ms)[0m   [0;1mINSERT INTO `leagues` (`name`, `start_date`, `created_at`, `updated_at`, `manager`, `length`, `status`, `end_date`) VALUES('Test', NULL, '2010-06-20 01:58:13', '2010-06-20 01:58:13', NULL, '10', 'created', NULL)[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mROLLBACK[0m
+
+NoMethodError (undefined method `process_user_email' for #<Team:0x10358cf38>):
+  app/controllers/leagues_controller.rb:16:in `create'
+  warden (0.10.7) [v] lib/warden/manager.rb:35:in `call'
+  warden (0.10.7) [v] lib/warden/manager.rb:34:in `catch'
+  warden (0.10.7) [v] lib/warden/manager.rb:34:in `call'
+  haml (3.0.12) [v] rails/./lib/sass/plugin/rack.rb:41:in `call'
+
+Rendered rescues/_trace (237.5ms)
+Rendered rescues/_request_and_response (1.4ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing LeaguesController#create (for 127.0.0.1 at 2010-06-19 21:58:37) [POST]
+  Parameters: {"commit"=>"Create", "action"=>"create", "authenticity_token"=>"DHWSSPsrEycLeYpEDvpSSJBwPFemUtLtp/5boYM6BX8=", "controller"=>"leagues", "league"=>{"teams_attributes"=>{"6"=>{"user_email"=>""}, "7"=>{"user_email"=>""}, "8"=>{"user_email"=>""}, "9"=>{"user_email"=>""}, "0"=>{"user_email"=>"chris.hallendy@gmail.com"}, "1"=>{"user_email"=>""}, "2"=>{"user_email"=>""}, "3"=>{"user_email"=>""}, "4"=>{"user_email"=>""}, "5"=>{"user_email"=>""}}, "start_date"=>"1", "name"=>"Test", "length"=>"10"}}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;35;1mUser Columns (1.7ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mLeague Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `leagues`[0m
+  [4;35;1mTeam Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `teams`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mLeague Create (0.3ms)[0m   [0mINSERT INTO `leagues` (`name`, `start_date`, `created_at`, `updated_at`, `manager`, `length`, `status`, `end_date`) VALUES('Test', NULL, '2010-06-20 01:58:37', '2010-06-20 01:58:37', NULL, '10', 'created', NULL)[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mROLLBACK[0m
+
+RuntimeError (nil):
+  app/models/team.rb:32:in `process_user_email'
+  app/controllers/leagues_controller.rb:16:in `create'
+  warden (0.10.7) [v] lib/warden/manager.rb:35:in `call'
+  warden (0.10.7) [v] lib/warden/manager.rb:34:in `catch'
+  warden (0.10.7) [v] lib/warden/manager.rb:34:in `call'
+  haml (3.0.12) [v] rails/./lib/sass/plugin/rack.rb:41:in `call'
+
+Rendered rescues/_trace (262.7ms)
+Rendered rescues/_request_and_response (1.4ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing LeaguesController#create (for 127.0.0.1 at 2010-06-19 21:58:46) [POST]
+  Parameters: {"commit"=>"Create", "action"=>"create", "authenticity_token"=>"DHWSSPsrEycLeYpEDvpSSJBwPFemUtLtp/5boYM6BX8=", "controller"=>"leagues", "league"=>{"teams_attributes"=>{"6"=>{"user_email"=>""}, "7"=>{"user_email"=>""}, "8"=>{"user_email"=>""}, "9"=>{"user_email"=>""}, "0"=>{"user_email"=>"chris.hallendy@gmail.com"}, "1"=>{"user_email"=>""}, "2"=>{"user_email"=>""}, "3"=>{"user_email"=>""}, "4"=>{"user_email"=>""}, "5"=>{"user_email"=>""}}, "start_date"=>"1", "name"=>"Test", "length"=>"10"}}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mUser Columns (1.7ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mLeague Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `leagues`[0m
+  [4;36;1mTeam Columns (1.7ms)[0m   [0;1mSHOW FIELDS FROM `teams`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mLeague Create (0.3ms)[0m   [0;1mINSERT INTO `leagues` (`name`, `start_date`, `created_at`, `updated_at`, `manager`, `length`, `status`, `end_date`) VALUES('Test', NULL, '2010-06-20 01:58:46', '2010-06-20 01:58:46', NULL, '10', 'created', NULL)[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mROLLBACK[0m
+
+RuntimeError (nil):
+  app/models/team.rb:32:in `process_user_email'
+  app/controllers/leagues_controller.rb:16:in `create'
+  warden (0.10.7) [v] lib/warden/manager.rb:35:in `call'
+  warden (0.10.7) [v] lib/warden/manager.rb:34:in `catch'
+  warden (0.10.7) [v] lib/warden/manager.rb:34:in `call'
+  haml (3.0.12) [v] rails/./lib/sass/plugin/rack.rb:41:in `call'
+
+Rendered rescues/_trace (145.7ms)
+Rendered rescues/_request_and_response (1.4ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing LeaguesController#create (for 127.0.0.1 at 2010-06-19 21:58:50) [POST]
+  Parameters: {"commit"=>"Create", "action"=>"create", "authenticity_token"=>"DHWSSPsrEycLeYpEDvpSSJBwPFemUtLtp/5boYM6BX8=", "controller"=>"leagues", "league"=>{"teams_attributes"=>{"6"=>{"user_email"=>""}, "7"=>{"user_email"=>""}, "8"=>{"user_email"=>""}, "9"=>{"user_email"=>""}, "0"=>{"user_email"=>"chris.hallendy@gmail.com"}, "1"=>{"user_email"=>""}, "2"=>{"user_email"=>""}, "3"=>{"user_email"=>""}, "4"=>{"user_email"=>""}, "5"=>{"user_email"=>""}}, "start_date"=>"1", "name"=>"Test", "length"=>"10"}}
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;35;1mUser Columns (1.9ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mLeague Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `leagues`[0m
+  [4;35;1mTeam Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `teams`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mLeague Create (0.3ms)[0m   [0mINSERT INTO `leagues` (`name`, `start_date`, `created_at`, `updated_at`, `manager`, `length`, `status`, `end_date`) VALUES('Test', NULL, '2010-06-20 01:58:50', '2010-06-20 01:58:50', NULL, '10', 'created', NULL)[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mROLLBACK[0m
+
+RuntimeError (nil):
+  app/models/team.rb:32:in `process_user_email'
+  app/controllers/leagues_controller.rb:16:in `create'
+  warden (0.10.7) [v] lib/warden/manager.rb:35:in `call'
+  warden (0.10.7) [v] lib/warden/manager.rb:34:in `catch'
+  warden (0.10.7) [v] lib/warden/manager.rb:34:in `call'
+  haml (3.0.12) [v] rails/./lib/sass/plugin/rack.rb:41:in `call'
+
+Rendered rescues/_trace (146.5ms)
+Rendered rescues/_request_and_response (1.4ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing LeaguesController#create (for 127.0.0.1 at 2010-06-19 21:59:24) [POST]
+  Parameters: {"commit"=>"Create", "action"=>"create", "authenticity_token"=>"DHWSSPsrEycLeYpEDvpSSJBwPFemUtLtp/5boYM6BX8=", "controller"=>"leagues", "league"=>{"teams_attributes"=>{"6"=>{"user_email"=>""}, "7"=>{"user_email"=>""}, "8"=>{"user_email"=>""}, "9"=>{"user_email"=>""}, "0"=>{"user_email"=>"chris.hallendy@gmail.com"}, "1"=>{"user_email"=>""}, "2"=>{"user_email"=>""}, "3"=>{"user_email"=>""}, "4"=>{"user_email"=>""}, "5"=>{"user_email"=>""}}, "start_date"=>"1", "name"=>"Test", "length"=>"10"}}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mUser Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mLeague Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `leagues`[0m
+  [4;36;1mTeam Columns (1.7ms)[0m   [0;1mSHOW FIELDS FROM `teams`[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mBEGIN[0m
+  [4;36;1mLeague Create (0.3ms)[0m   [0;1mINSERT INTO `leagues` (`name`, `start_date`, `created_at`, `updated_at`, `manager`, `length`, `status`, `end_date`) VALUES('Test', NULL, '2010-06-20 01:59:24', '2010-06-20 01:59:24', NULL, '10', 'created', NULL)[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mROLLBACK[0m
+
+TypeError (exception class/object expected):
+  app/models/team.rb:34:in `raise'
+  app/models/team.rb:34:in `process_user_email'
+  app/controllers/leagues_controller.rb:16:in `create'
+  warden (0.10.7) [v] lib/warden/manager.rb:35:in `call'
+  warden (0.10.7) [v] lib/warden/manager.rb:34:in `catch'
+  warden (0.10.7) [v] lib/warden/manager.rb:34:in `call'
+  haml (3.0.12) [v] rails/./lib/sass/plugin/rack.rb:41:in `call'
+
+Rendered rescues/_trace (243.5ms)
+Rendered rescues/_request_and_response (1.4ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing LeaguesController#create (for 127.0.0.1 at 2010-06-19 21:59:36) [POST]
+  Parameters: {"commit"=>"Create", "action"=>"create", "authenticity_token"=>"DHWSSPsrEycLeYpEDvpSSJBwPFemUtLtp/5boYM6BX8=", "controller"=>"leagues", "league"=>{"teams_attributes"=>{"6"=>{"user_email"=>""}, "7"=>{"user_email"=>""}, "8"=>{"user_email"=>""}, "9"=>{"user_email"=>""}, "0"=>{"user_email"=>"chris.hallendy@gmail.com"}, "1"=>{"user_email"=>""}, "2"=>{"user_email"=>""}, "3"=>{"user_email"=>""}, "4"=>{"user_email"=>""}, "5"=>{"user_email"=>""}}, "start_date"=>"1", "name"=>"Test", "length"=>"10"}}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mUser Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mLeague Columns (1.9ms)[0m   [0mSHOW FIELDS FROM `leagues`[0m
+  [4;36;1mTeam Columns (1.7ms)[0m   [0;1mSHOW FIELDS FROM `teams`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mLeague Create (0.3ms)[0m   [0;1mINSERT INTO `leagues` (`name`, `start_date`, `created_at`, `updated_at`, `manager`, `length`, `status`, `end_date`) VALUES('Test', NULL, '2010-06-20 01:59:36', '2010-06-20 01:59:36', NULL, '10', 'created', NULL)[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mROLLBACK[0m
+
+RuntimeError (#<User id: 1, email: "chris.hallendy@gmail.com", encrypted_password: "464546d8f7d2c5a95190f63df122d6e403349817", password_salt: "NsAQZurZ3JcrnECmaS-L", confirmation_token: nil, confirmed_at: nil, confirmation_sent_at: nil, reset_password_token: nil, remember_token: nil, remember_created_at: nil, sign_in_count: 10, current_sign_in_at: "2010-06-20 01:55:27", last_sign_in_at: "2010-06-19 03:57:02", current_sign_in_ip: "127.0.0.1", last_sign_in_ip: "127.0.0.1", created_at: "2010-06-15 04:02:17", updated_at: "2010-06-20 01:55:27">):
+  app/models/team.rb:34:in `process_user_email'
+  app/controllers/leagues_controller.rb:16:in `create'
+  warden (0.10.7) [v] lib/warden/manager.rb:35:in `call'
+  warden (0.10.7) [v] lib/warden/manager.rb:34:in `catch'
+  warden (0.10.7) [v] lib/warden/manager.rb:34:in `call'
+  haml (3.0.12) [v] rails/./lib/sass/plugin/rack.rb:41:in `call'
+
+Rendered rescues/_trace (250.7ms)
+Rendered rescues/_request_and_response (1.4ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing LeaguesController#create (for 127.0.0.1 at 2010-06-19 22:00:20) [POST]
+  Parameters: {"commit"=>"Create", "action"=>"create", "authenticity_token"=>"DHWSSPsrEycLeYpEDvpSSJBwPFemUtLtp/5boYM6BX8=", "controller"=>"leagues", "league"=>{"teams_attributes"=>{"6"=>{"user_email"=>""}, "7"=>{"user_email"=>""}, "8"=>{"user_email"=>""}, "9"=>{"user_email"=>""}, "0"=>{"user_email"=>"chris.hallendy@gmail.com"}, "1"=>{"user_email"=>""}, "2"=>{"user_email"=>""}, "3"=>{"user_email"=>""}, "4"=>{"user_email"=>""}, "5"=>{"user_email"=>""}}, "start_date"=>"1", "name"=>"Test", "length"=>"10"}}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mUser Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mLeague Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `leagues`[0m
+  [4;36;1mTeam Columns (1.7ms)[0m   [0;1mSHOW FIELDS FROM `teams`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mLeague Create (0.3ms)[0m   [0;1mINSERT INTO `leagues` (`name`, `start_date`, `created_at`, `updated_at`, `manager`, `length`, `status`, `end_date`) VALUES('Test', NULL, '2010-06-20 02:00:20', '2010-06-20 02:00:20', NULL, '10', 'created', NULL)[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mROLLBACK[0m
+
+RuntimeError (#<Team id: nil, name: nil, total_points: nil, wins: nil, loss: nil, last_weeks_points: nil, league_id: 23, user_id: 1, created_at: nil, updated_at: nil, status: "created">):
+  app/models/team.rb:34:in `process_user_email'
+  app/controllers/leagues_controller.rb:16:in `create'
+  warden (0.10.7) [v] lib/warden/manager.rb:35:in `call'
+  warden (0.10.7) [v] lib/warden/manager.rb:34:in `catch'
+  warden (0.10.7) [v] lib/warden/manager.rb:34:in `call'
+  haml (3.0.12) [v] rails/./lib/sass/plugin/rack.rb:41:in `call'
+
+Rendered rescues/_trace (264.0ms)
+Rendered rescues/_request_and_response (1.4ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing LeaguesController#create (for 127.0.0.1 at 2010-06-19 22:00:32) [POST]
+  Parameters: {"commit"=>"Create", "action"=>"create", "authenticity_token"=>"DHWSSPsrEycLeYpEDvpSSJBwPFemUtLtp/5boYM6BX8=", "controller"=>"leagues", "league"=>{"teams_attributes"=>{"6"=>{"user_email"=>""}, "7"=>{"user_email"=>""}, "8"=>{"user_email"=>""}, "9"=>{"user_email"=>""}, "0"=>{"user_email"=>"chris.hallendy@gmail.com"}, "1"=>{"user_email"=>""}, "2"=>{"user_email"=>""}, "3"=>{"user_email"=>""}, "4"=>{"user_email"=>""}, "5"=>{"user_email"=>""}}, "start_date"=>"1", "name"=>"Test", "length"=>"10"}}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mUser Columns (1.7ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mLeague Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `leagues`[0m
+  [4;36;1mTeam Columns (1.7ms)[0m   [0;1mSHOW FIELDS FROM `teams`[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mBEGIN[0m
+  [4;36;1mLeague Create (0.3ms)[0m   [0;1mINSERT INTO `leagues` (`name`, `start_date`, `created_at`, `updated_at`, `manager`, `length`, `status`, `end_date`) VALUES('Test', NULL, '2010-06-20 02:00:32', '2010-06-20 02:00:32', NULL, '10', 'created', NULL)[0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mROLLBACK[0m
+
+RuntimeError (#<Team id: nil, name: nil, total_points: nil, wins: nil, loss: nil, last_weeks_points: nil, league_id: 24, user_id: 1, created_at: nil, updated_at: nil, status: "created">):
+  app/models/team.rb:34:in `process_user_email'
+  app/controllers/leagues_controller.rb:16:in `create'
+  warden (0.10.7) [v] lib/warden/manager.rb:35:in `call'
+  warden (0.10.7) [v] lib/warden/manager.rb:34:in `catch'
+  warden (0.10.7) [v] lib/warden/manager.rb:34:in `call'
+  haml (3.0.12) [v] rails/./lib/sass/plugin/rack.rb:41:in `call'
+
+Rendered rescues/_trace (145.5ms)
+Rendered rescues/_request_and_response (1.4ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing LeaguesController#create (for 127.0.0.1 at 2010-06-19 22:00:37) [POST]
+  Parameters: {"commit"=>"Create", "action"=>"create", "authenticity_token"=>"DHWSSPsrEycLeYpEDvpSSJBwPFemUtLtp/5boYM6BX8=", "controller"=>"leagues", "league"=>{"teams_attributes"=>{"6"=>{"user_email"=>""}, "7"=>{"user_email"=>""}, "8"=>{"user_email"=>""}, "9"=>{"user_email"=>""}, "0"=>{"user_email"=>"chris.hallendy@gmail.com"}, "1"=>{"user_email"=>""}, "2"=>{"user_email"=>""}, "3"=>{"user_email"=>""}, "4"=>{"user_email"=>""}, "5"=>{"user_email"=>""}}, "start_date"=>"1", "name"=>"Test", "length"=>"10"}}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mUser Columns (1.8ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mLeague Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `leagues`[0m
+  [4;36;1mTeam Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `teams`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mLeague Create (0.3ms)[0m   [0;1mINSERT INTO `leagues` (`name`, `start_date`, `created_at`, `updated_at`, `manager`, `length`, `status`, `end_date`) VALUES('Test', NULL, '2010-06-20 02:00:38', '2010-06-20 02:00:38', NULL, '10', 'created', NULL)[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mROLLBACK[0m
+
+RuntimeError (#<Team id: nil, name: nil, total_points: nil, wins: nil, loss: nil, last_weeks_points: nil, league_id: 25, user_id: 1, created_at: nil, updated_at: nil, status: "created">):
+  app/models/team.rb:34:in `process_user_email'
+  app/controllers/leagues_controller.rb:16:in `create'
+  warden (0.10.7) [v] lib/warden/manager.rb:35:in `call'
+  warden (0.10.7) [v] lib/warden/manager.rb:34:in `catch'
+  warden (0.10.7) [v] lib/warden/manager.rb:34:in `call'
+  haml (3.0.12) [v] rails/./lib/sass/plugin/rack.rb:41:in `call'
+
+Rendered rescues/_trace (146.4ms)
+Rendered rescues/_request_and_response (1.5ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.2ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing LeaguesController#create (for 127.0.0.1 at 2010-06-19 22:00:46) [POST]
+  Parameters: {"commit"=>"Create", "action"=>"create", "authenticity_token"=>"DHWSSPsrEycLeYpEDvpSSJBwPFemUtLtp/5boYM6BX8=", "controller"=>"leagues", "league"=>{"teams_attributes"=>{"6"=>{"user_email"=>""}, "7"=>{"user_email"=>""}, "8"=>{"user_email"=>""}, "9"=>{"user_email"=>""}, "0"=>{"user_email"=>"chris.hallendy@gmail.com"}, "1"=>{"user_email"=>""}, "2"=>{"user_email"=>""}, "3"=>{"user_email"=>""}, "4"=>{"user_email"=>""}, "5"=>{"user_email"=>""}}, "start_date"=>"1", "name"=>"Test", "length"=>"10"}}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mUser Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mLeague Columns (1.7ms)[0m   [0mSHOW FIELDS FROM `leagues`[0m
+  [4;36;1mTeam Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `teams`[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mBEGIN[0m
+  [4;36;1mLeague Create (0.3ms)[0m   [0;1mINSERT INTO `leagues` (`name`, `start_date`, `created_at`, `updated_at`, `manager`, `length`, `status`, `end_date`) VALUES('Test', NULL, '2010-06-20 02:00:46', '2010-06-20 02:00:46', NULL, '10', 'created', NULL)[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mROLLBACK[0m
+
+SystemStackError (stack level too deep):
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/controllers/leagues_controller.rb:16:in `create'
+  warden (0.10.7) [v] lib/warden/manager.rb:35:in `call'
+  warden (0.10.7) [v] lib/warden/manager.rb:34:in `catch'
+  warden (0.10.7) [v] lib/warden/manager.rb:34:in `call'
+  haml (3.0.12) [v] rails/./lib/sass/plugin/rack.rb:41:in `call'
+
+Rendered rescues/_trace (1674.7ms)
+Rendered rescues/_request_and_response (1.4ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing LeaguesController#create (for 127.0.0.1 at 2010-06-19 22:00:52) [POST]
+  Parameters: {"commit"=>"Create", "action"=>"create", "authenticity_token"=>"DHWSSPsrEycLeYpEDvpSSJBwPFemUtLtp/5boYM6BX8=", "controller"=>"leagues", "league"=>{"teams_attributes"=>{"6"=>{"user_email"=>""}, "7"=>{"user_email"=>""}, "8"=>{"user_email"=>""}, "9"=>{"user_email"=>""}, "0"=>{"user_email"=>"chris.hallendy@gmail.com"}, "1"=>{"user_email"=>""}, "2"=>{"user_email"=>""}, "3"=>{"user_email"=>""}, "4"=>{"user_email"=>""}, "5"=>{"user_email"=>""}}, "start_date"=>"1", "name"=>"Test", "length"=>"10"}}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mUser Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mLeague Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `leagues`[0m
+  [4;36;1mTeam Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `teams`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mLeague Create (0.3ms)[0m   [0;1mINSERT INTO `leagues` (`name`, `start_date`, `created_at`, `updated_at`, `manager`, `length`, `status`, `end_date`) VALUES('Test', NULL, '2010-06-20 02:00:52', '2010-06-20 02:00:52', NULL, '10', 'created', NULL)[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mROLLBACK[0m
+
+SystemStackError (stack level too deep):
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/controllers/leagues_controller.rb:16:in `create'
+  warden (0.10.7) [v] lib/warden/manager.rb:35:in `call'
+  warden (0.10.7) [v] lib/warden/manager.rb:34:in `catch'
+  warden (0.10.7) [v] lib/warden/manager.rb:34:in `call'
+  haml (3.0.12) [v] rails/./lib/sass/plugin/rack.rb:41:in `call'
+
+Rendered rescues/_trace (1641.2ms)
+Rendered rescues/_request_and_response (1.4ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing LeaguesController#new (for 127.0.0.1 at 2010-06-19 22:03:58) [GET]
+  Parameters: {"action"=>"new", "controller"=>"leagues"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mUser Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mLeague Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `leagues`[0m
+  [4;36;1mTeam Columns (1.7ms)[0m   [0;1mSHOW FIELDS FROM `teams`[0m
+Rendering template within layouts/application
+Rendering leagues/new
+Rendered leagues/_teams (17.0ms)
+Completed in 99ms (View: 30, DB: 6) | 200 OK [http://localhost/leagues/new]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing LeaguesController#create (for 127.0.0.1 at 2010-06-19 22:04:15) [POST]
+  Parameters: {"commit"=>"Create", "action"=>"create", "authenticity_token"=>"DHWSSPsrEycLeYpEDvpSSJBwPFemUtLtp/5boYM6BX8=", "controller"=>"leagues", "league"=>{"teams_attributes"=>{"6"=>{"user_email"=>""}, "7"=>{"user_email"=>""}, "8"=>{"user_email"=>""}, "9"=>{"user_email"=>""}, "0"=>{"user_email"=>"chris.hallendy@gmail.com"}, "1"=>{"user_email"=>"shannon@yahoo.com"}, "2"=>{"user_email"=>""}, "3"=>{"user_email"=>""}, "4"=>{"user_email"=>""}, "5"=>{"user_email"=>""}}, "start_date"=>"", "name"=>"Test21", "length"=>"20"}}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mUser Columns (15.7ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mLeague Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `leagues`[0m
+  [4;36;1mTeam Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `teams`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mLeague Create (0.5ms)[0m   [0;1mINSERT INTO `leagues` (`name`, `start_date`, `created_at`, `updated_at`, `manager`, `length`, `status`, `end_date`) VALUES('Test21', NULL, '2010-06-20 02:04:16', '2010-06-20 02:04:16', NULL, '20', 'created', NULL)[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mROLLBACK[0m
+
+SystemStackError (stack level too deep):
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/controllers/leagues_controller.rb:16:in `create'
+  warden (0.10.7) [v] lib/warden/manager.rb:35:in `call'
+  warden (0.10.7) [v] lib/warden/manager.rb:34:in `catch'
+  warden (0.10.7) [v] lib/warden/manager.rb:34:in `call'
+  haml (3.0.12) [v] rails/./lib/sass/plugin/rack.rb:41:in `call'
+
+Rendered rescues/_trace (1989.0ms)
+Rendered rescues/_request_and_response (1.4ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing LeaguesController#create (for 127.0.0.1 at 2010-06-19 22:05:39) [POST]
+  Parameters: {"commit"=>"Create", "action"=>"create", "authenticity_token"=>"DHWSSPsrEycLeYpEDvpSSJBwPFemUtLtp/5boYM6BX8=", "controller"=>"leagues", "league"=>{"teams_attributes"=>{"6"=>{"user_email"=>""}, "7"=>{"user_email"=>""}, "8"=>{"user_email"=>""}, "9"=>{"user_email"=>""}, "0"=>{"user_email"=>"chris.hallendy@gmail.com"}, "1"=>{"user_email"=>"shannon@yahoo.com"}, "2"=>{"user_email"=>""}, "3"=>{"user_email"=>""}, "4"=>{"user_email"=>""}, "5"=>{"user_email"=>""}}, "start_date"=>"", "name"=>"Test21", "length"=>"20"}}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mUser Columns (1.8ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mLeague Columns (1.7ms)[0m   [0mSHOW FIELDS FROM `leagues`[0m
+  [4;36;1mTeam Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `teams`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mLeague Create (0.4ms)[0m   [0;1mINSERT INTO `leagues` (`name`, `start_date`, `created_at`, `updated_at`, `manager`, `length`, `status`, `end_date`) VALUES('Test21', NULL, '2010-06-20 02:05:40', '2010-06-20 02:05:40', NULL, '20', 'created', NULL)[0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'chris.hallendy@gmail.com' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mROLLBACK[0m
+
+SystemStackError (stack level too deep):
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/controllers/leagues_controller.rb:16:in `create'
+  warden (0.10.7) [v] lib/warden/manager.rb:35:in `call'
+  warden (0.10.7) [v] lib/warden/manager.rb:34:in `catch'
+  warden (0.10.7) [v] lib/warden/manager.rb:34:in `call'
+  haml (3.0.12) [v] rails/./lib/sass/plugin/rack.rb:41:in `call'
+
+Rendered rescues/_trace (2026.6ms)
+Rendered rescues/_request_and_response (1.4ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing LeaguesController#create (for 127.0.0.1 at 2010-06-19 22:06:43) [POST]
+  Parameters: {"commit"=>"Create", "action"=>"create", "authenticity_token"=>"DHWSSPsrEycLeYpEDvpSSJBwPFemUtLtp/5boYM6BX8=", "controller"=>"leagues", "league"=>{"teams_attributes"=>{"6"=>{"user_email"=>""}, "7"=>{"user_email"=>""}, "8"=>{"user_email"=>""}, "9"=>{"user_email"=>""}, "0"=>{"user_email"=>"chris.hallendy@gmail.com"}, "1"=>{"user_email"=>"shannon@yahoo.com"}, "2"=>{"user_email"=>""}, "3"=>{"user_email"=>""}, "4"=>{"user_email"=>""}, "5"=>{"user_email"=>""}}, "start_date"=>"", "name"=>"Test21", "length"=>"20"}}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mUser Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mLeague Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `leagues`[0m
+  [4;36;1mTeam Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `teams`[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mBEGIN[0m
+  [4;36;1mLeague Create (0.5ms)[0m   [0;1mINSERT INTO `leagues` (`name`, `start_date`, `created_at`, `updated_at`, `manager`, `length`, `status`, `end_date`) VALUES('Test21', NULL, '2010-06-20 02:06:43', '2010-06-20 02:06:43', NULL, '20', 'created', NULL)[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `users` LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `users` LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `users` LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `users` LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `users` LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `users` LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `users` LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `users` LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `users` LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `users` LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `users` LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `users` LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `users` LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `users` LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `users` LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `users` LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `users` LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `users` LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `users` LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mROLLBACK[0m
+
+SystemStackError (stack level too deep):
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/controllers/leagues_controller.rb:16:in `create'
+  warden (0.10.7) [v] lib/warden/manager.rb:35:in `call'
+  warden (0.10.7) [v] lib/warden/manager.rb:34:in `catch'
+  warden (0.10.7) [v] lib/warden/manager.rb:34:in `call'
+  haml (3.0.12) [v] rails/./lib/sass/plugin/rack.rb:41:in `call'
+
+Rendered rescues/_trace (2021.6ms)
+Rendered rescues/_request_and_response (1.4ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing LeaguesController#create (for 127.0.0.1 at 2010-06-19 22:07:49) [POST]
+  Parameters: {"commit"=>"Create", "action"=>"create", "authenticity_token"=>"DHWSSPsrEycLeYpEDvpSSJBwPFemUtLtp/5boYM6BX8=", "controller"=>"leagues", "league"=>{"teams_attributes"=>{"6"=>{"user_email"=>""}, "7"=>{"user_email"=>""}, "8"=>{"user_email"=>""}, "9"=>{"user_email"=>""}, "0"=>{"user_email"=>"chris.hallendy@gmail.com"}, "1"=>{"user_email"=>"shannon@yahoo.com"}, "2"=>{"user_email"=>""}, "3"=>{"user_email"=>""}, "4"=>{"user_email"=>""}, "5"=>{"user_email"=>""}}, "start_date"=>"", "name"=>"Test21", "length"=>"20"}}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mUser Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mLeague Columns (1.7ms)[0m   [0mSHOW FIELDS FROM `leagues`[0m
+  [4;36;1mTeam Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `teams`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mLeague Create (0.3ms)[0m   [0;1mINSERT INTO `leagues` (`name`, `start_date`, `created_at`, `updated_at`, `manager`, `length`, `status`, `end_date`) VALUES('Test21', NULL, '2010-06-20 02:07:49', '2010-06-20 02:07:49', NULL, '20', 'created', NULL)[0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `users` LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `users` LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `users` LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `users` LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `users` LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `users` LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `users` LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `users` LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `users` LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `users` LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `users` LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `users` LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `users` LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `users` LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `users` LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `users` LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `users` LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `users` LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `users` LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mROLLBACK[0m
+
+SystemStackError (stack level too deep):
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/models/team.rb:34:in `process_user_email'
+  app/controllers/leagues_controller.rb:16:in `create'
+  warden (0.10.7) [v] lib/warden/manager.rb:35:in `call'
+  warden (0.10.7) [v] lib/warden/manager.rb:34:in `catch'
+  warden (0.10.7) [v] lib/warden/manager.rb:34:in `call'
+  haml (3.0.12) [v] rails/./lib/sass/plugin/rack.rb:41:in `call'
+
+Rendered rescues/_trace (1631.4ms)
+Rendered rescues/_request_and_response (1.4ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing LeaguesController#create (for 127.0.0.1 at 2010-06-19 22:08:54) [POST]
+  Parameters: {"commit"=>"Create", "action"=>"create", "authenticity_token"=>"DHWSSPsrEycLeYpEDvpSSJBwPFemUtLtp/5boYM6BX8=", "controller"=>"leagues", "league"=>{"teams_attributes"=>{"6"=>{"user_email"=>""}, "7"=>{"user_email"=>""}, "8"=>{"user_email"=>""}, "9"=>{"user_email"=>""}, "0"=>{"user_email"=>"chris.hallendy@gmail.com"}, "1"=>{"user_email"=>"shannon@yahoo.com"}, "2"=>{"user_email"=>""}, "3"=>{"user_email"=>""}, "4"=>{"user_email"=>""}, "5"=>{"user_email"=>""}}, "start_date"=>"", "name"=>"Test21", "length"=>"20"}}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mUser Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mLeague Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `leagues`[0m
+  [4;36;1mTeam Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `teams`[0m
+  [4;35;1mSQL (2.3ms)[0m   [0mBEGIN[0m
+  [4;36;1mLeague Create (0.6ms)[0m   [0;1mINSERT INTO `leagues` (`name`, `start_date`, `created_at`, `updated_at`, `manager`, `length`, `status`, `end_date`) VALUES('Test21', NULL, '2010-06-20 02:08:54', '2010-06-20 02:08:54', NULL, '20', 'created', NULL)[0m
+  [4;35;1mTeam Create (0.3ms)[0m   [0mINSERT INTO `teams` (`name`, `league_id`, `last_weeks_points`, `created_at`, `updated_at`, `wins`, `total_points`, `user_id`, `loss`, `status`) VALUES(NULL, 32, NULL, '2010-06-20 02:08:54', '2010-06-20 02:08:54', NULL, NULL, NULL, NULL, 'created')[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` LIMIT 1[0m
+  [4;35;1mTeam Update (0.4ms)[0m   [0mUPDATE `teams` SET `updated_at` = '2010-06-20 02:08:54', `created_at` = '2010-06-20 02:08:54', `league_id` = 32, `status` = 'created', `user_id` = 1 WHERE `id` = 85[0m
+  [4;36;1mTeam Create (0.2ms)[0m   [0;1mINSERT INTO `teams` (`name`, `league_id`, `last_weeks_points`, `created_at`, `updated_at`, `wins`, `total_points`, `user_id`, `loss`, `status`) VALUES(NULL, 32, NULL, '2010-06-20 02:08:54', '2010-06-20 02:08:54', NULL, NULL, NULL, NULL, 'created')[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mTeam Update (0.3ms)[0m   [0;1mUPDATE `teams` SET `updated_at` = '2010-06-20 02:08:54', `created_at` = '2010-06-20 02:08:54', `league_id` = 32, `status` = 'created', `user_id` = 1 WHERE `id` = 86[0m
+  [4;35;1mTeam Create (0.2ms)[0m   [0mINSERT INTO `teams` (`name`, `league_id`, `last_weeks_points`, `created_at`, `updated_at`, `wins`, `total_points`, `user_id`, `loss`, `status`) VALUES(NULL, 32, NULL, '2010-06-20 02:08:54', '2010-06-20 02:08:54', NULL, NULL, NULL, NULL, 'created')[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` LIMIT 1[0m
+  [4;35;1mTeam Update (0.3ms)[0m   [0mUPDATE `teams` SET `updated_at` = '2010-06-20 02:08:54', `created_at` = '2010-06-20 02:08:54', `league_id` = 32, `status` = 'created', `user_id` = 1 WHERE `id` = 87[0m
+  [4;36;1mTeam Create (0.3ms)[0m   [0;1mINSERT INTO `teams` (`name`, `league_id`, `last_weeks_points`, `created_at`, `updated_at`, `wins`, `total_points`, `user_id`, `loss`, `status`) VALUES(NULL, 32, NULL, '2010-06-20 02:08:54', '2010-06-20 02:08:54', NULL, NULL, NULL, NULL, 'created')[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mTeam Update (0.3ms)[0m   [0;1mUPDATE `teams` SET `updated_at` = '2010-06-20 02:08:54', `created_at` = '2010-06-20 02:08:54', `league_id` = 32, `status` = 'created', `user_id` = 1 WHERE `id` = 88[0m
+  [4;35;1mTeam Create (0.2ms)[0m   [0mINSERT INTO `teams` (`name`, `league_id`, `last_weeks_points`, `created_at`, `updated_at`, `wins`, `total_points`, `user_id`, `loss`, `status`) VALUES(NULL, 32, NULL, '2010-06-20 02:08:54', '2010-06-20 02:08:54', NULL, NULL, NULL, NULL, 'created')[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` LIMIT 1[0m
+  [4;35;1mTeam Update (0.4ms)[0m   [0mUPDATE `teams` SET `updated_at` = '2010-06-20 02:08:54', `created_at` = '2010-06-20 02:08:54', `league_id` = 32, `status` = 'created', `user_id` = 1 WHERE `id` = 89[0m
+  [4;36;1mTeam Create (0.3ms)[0m   [0;1mINSERT INTO `teams` (`name`, `league_id`, `last_weeks_points`, `created_at`, `updated_at`, `wins`, `total_points`, `user_id`, `loss`, `status`) VALUES(NULL, 32, NULL, '2010-06-20 02:08:54', '2010-06-20 02:08:54', NULL, NULL, NULL, NULL, 'created')[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mTeam Update (0.3ms)[0m   [0;1mUPDATE `teams` SET `updated_at` = '2010-06-20 02:08:54', `created_at` = '2010-06-20 02:08:54', `league_id` = 32, `status` = 'created', `user_id` = 1 WHERE `id` = 90[0m
+  [4;35;1mTeam Create (0.2ms)[0m   [0mINSERT INTO `teams` (`name`, `league_id`, `last_weeks_points`, `created_at`, `updated_at`, `wins`, `total_points`, `user_id`, `loss`, `status`) VALUES(NULL, 32, NULL, '2010-06-20 02:08:54', '2010-06-20 02:08:54', NULL, NULL, NULL, NULL, 'created')[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` LIMIT 1[0m
+  [4;35;1mTeam Update (0.4ms)[0m   [0mUPDATE `teams` SET `updated_at` = '2010-06-20 02:08:54', `created_at` = '2010-06-20 02:08:54', `league_id` = 32, `status` = 'created', `user_id` = 1 WHERE `id` = 91[0m
+  [4;36;1mTeam Create (0.2ms)[0m   [0;1mINSERT INTO `teams` (`name`, `league_id`, `last_weeks_points`, `created_at`, `updated_at`, `wins`, `total_points`, `user_id`, `loss`, `status`) VALUES(NULL, 32, NULL, '2010-06-20 02:08:54', '2010-06-20 02:08:54', NULL, NULL, NULL, NULL, 'created')[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mTeam Update (0.3ms)[0m   [0;1mUPDATE `teams` SET `updated_at` = '2010-06-20 02:08:54', `created_at` = '2010-06-20 02:08:54', `league_id` = 32, `status` = 'created', `user_id` = 1 WHERE `id` = 92[0m
+  [4;35;1mTeam Create (0.2ms)[0m   [0mINSERT INTO `teams` (`name`, `league_id`, `last_weeks_points`, `created_at`, `updated_at`, `wins`, `total_points`, `user_id`, `loss`, `status`) VALUES(NULL, 32, NULL, '2010-06-20 02:08:54', '2010-06-20 02:08:54', NULL, NULL, NULL, NULL, 'created')[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` LIMIT 1[0m
+  [4;35;1mTeam Update (0.3ms)[0m   [0mUPDATE `teams` SET `updated_at` = '2010-06-20 02:08:54', `created_at` = '2010-06-20 02:08:54', `league_id` = 32, `status` = 'created', `user_id` = 1 WHERE `id` = 93[0m
+  [4;36;1mTeam Create (0.2ms)[0m   [0;1mINSERT INTO `teams` (`name`, `league_id`, `last_weeks_points`, `created_at`, `updated_at`, `wins`, `total_points`, `user_id`, `loss`, `status`) VALUES(NULL, 32, NULL, '2010-06-20 02:08:54', '2010-06-20 02:08:54', NULL, NULL, NULL, NULL, 'created')[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mTeam Update (0.3ms)[0m   [0;1mUPDATE `teams` SET `updated_at` = '2010-06-20 02:08:54', `created_at` = '2010-06-20 02:08:54', `league_id` = 32, `status` = 'created', `user_id` = 1 WHERE `id` = 94[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mCOMMIT[0m
+
+RuntimeError ():
+  app/controllers/leagues_controller.rb:19:in `create'
+  warden (0.10.7) [v] lib/warden/manager.rb:35:in `call'
+  warden (0.10.7) [v] lib/warden/manager.rb:34:in `catch'
+  warden (0.10.7) [v] lib/warden/manager.rb:34:in `call'
+  haml (3.0.12) [v] rails/./lib/sass/plugin/rack.rb:41:in `call'
+
+Rendered rescues/_trace (74.2ms)
+Rendered rescues/_request_and_response (1.4ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing DashboardController#index (for 127.0.0.1 at 2010-06-19 22:10:35) [GET]
+  Parameters: {"only"=>:index, "action"=>"index", "controller"=>"dashboard"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;35;1mUser Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+Rendering template within layouts/dashboard
+Rendering dashboard/index
+  [4;36;1mleagues_users Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `leagues_users`[0m
+  [4;35;1mLeague Load (0.3ms)[0m   [0mSELECT * FROM `leagues` INNER JOIN `leagues_users` ON `leagues`.id = `leagues_users`.league_id WHERE (`leagues_users`.user_id = 1 ) [0m
+Completed in 55ms (View: 31, DB: 4) | 200 OK [http://localhost/]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing LeaguesController#new (for 127.0.0.1 at 2010-06-19 22:10:39) [GET]
+  Parameters: {"action"=>"new", "controller"=>"leagues"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;35;1mUser Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mLeague Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `leagues`[0m
+  [4;35;1mTeam Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `teams`[0m
+Rendering template within layouts/application
+Rendering leagues/new
+Rendered leagues/_teams (17.2ms)
+Completed in 198ms (View: 30, DB: 5) | 200 OK [http://localhost/leagues/new]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing LeaguesController#create (for 127.0.0.1 at 2010-06-19 22:11:16) [POST]
+  Parameters: {"commit"=>"Create", "action"=>"create", "authenticity_token"=>"DHWSSPsrEycLeYpEDvpSSJBwPFemUtLtp/5boYM6BX8=", "controller"=>"leagues", "league"=>{"teams_attributes"=>{"6"=>{"user_email"=>""}, "7"=>{"user_email"=>""}, "8"=>{"user_email"=>""}, "9"=>{"user_email"=>""}, "0"=>{"user_email"=>"chris.hallendy@gmail.com"}, "1"=>{"user_email"=>"shannon@yahoo.com"}, "2"=>{"user_email"=>"ben@gmail.com"}, "3"=>{"user_email"=>""}, "4"=>{"user_email"=>""}, "5"=>{"user_email"=>""}}, "start_date"=>"2010-07-06", "name"=>"My League", "length"=>"20"}}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;35;1mUser Columns (1.8ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mLeague Columns (1.7ms)[0m   [0;1mSHOW FIELDS FROM `leagues`[0m
+  [4;35;1mTeam Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `teams`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mLeague Create (0.3ms)[0m   [0mINSERT INTO `leagues` (`name`, `start_date`, `created_at`, `updated_at`, `manager`, `length`, `status`, `end_date`) VALUES('My League', '2010-07-06', '2010-06-20 02:11:16', '2010-06-20 02:11:16', NULL, '20', 'created', NULL)[0m
+  [4;36;1mTeam Create (0.2ms)[0m   [0;1mINSERT INTO `teams` (`name`, `league_id`, `last_weeks_points`, `created_at`, `updated_at`, `wins`, `total_points`, `user_id`, `loss`, `status`) VALUES(NULL, 1, NULL, '2010-06-20 02:11:16', '2010-06-20 02:11:16', NULL, NULL, NULL, NULL, 'created')[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mTeam Update (0.3ms)[0m   [0;1mUPDATE `teams` SET `updated_at` = '2010-06-20 02:11:16', `created_at` = '2010-06-20 02:11:16', `league_id` = 1, `status` = 'created', `user_id` = 1 WHERE `id` = 1[0m
+  [4;35;1mTeam Create (0.2ms)[0m   [0mINSERT INTO `teams` (`name`, `league_id`, `last_weeks_points`, `created_at`, `updated_at`, `wins`, `total_points`, `user_id`, `loss`, `status`) VALUES(NULL, 1, NULL, '2010-06-20 02:11:16', '2010-06-20 02:11:16', NULL, NULL, NULL, NULL, 'created')[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` LIMIT 1[0m
+  [4;35;1mTeam Update (0.3ms)[0m   [0mUPDATE `teams` SET `updated_at` = '2010-06-20 02:11:16', `created_at` = '2010-06-20 02:11:16', `league_id` = 1, `status` = 'created', `user_id` = 1 WHERE `id` = 2[0m
+  [4;36;1mTeam Create (0.3ms)[0m   [0;1mINSERT INTO `teams` (`name`, `league_id`, `last_weeks_points`, `created_at`, `updated_at`, `wins`, `total_points`, `user_id`, `loss`, `status`) VALUES(NULL, 1, NULL, '2010-06-20 02:11:16', '2010-06-20 02:11:16', NULL, NULL, NULL, NULL, 'created')[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mTeam Update (0.3ms)[0m   [0;1mUPDATE `teams` SET `updated_at` = '2010-06-20 02:11:16', `created_at` = '2010-06-20 02:11:16', `league_id` = 1, `status` = 'created', `user_id` = 1 WHERE `id` = 3[0m
+  [4;35;1mTeam Create (0.2ms)[0m   [0mINSERT INTO `teams` (`name`, `league_id`, `last_weeks_points`, `created_at`, `updated_at`, `wins`, `total_points`, `user_id`, `loss`, `status`) VALUES(NULL, 1, NULL, '2010-06-20 02:11:16', '2010-06-20 02:11:16', NULL, NULL, NULL, NULL, 'created')[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` LIMIT 1[0m
+  [4;35;1mTeam Update (0.3ms)[0m   [0mUPDATE `teams` SET `updated_at` = '2010-06-20 02:11:16', `created_at` = '2010-06-20 02:11:16', `league_id` = 1, `status` = 'created', `user_id` = 1 WHERE `id` = 4[0m
+  [4;36;1mTeam Create (0.3ms)[0m   [0;1mINSERT INTO `teams` (`name`, `league_id`, `last_weeks_points`, `created_at`, `updated_at`, `wins`, `total_points`, `user_id`, `loss`, `status`) VALUES(NULL, 1, NULL, '2010-06-20 02:11:16', '2010-06-20 02:11:16', NULL, NULL, NULL, NULL, 'created')[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mTeam Update (0.3ms)[0m   [0;1mUPDATE `teams` SET `updated_at` = '2010-06-20 02:11:16', `created_at` = '2010-06-20 02:11:16', `league_id` = 1, `status` = 'created', `user_id` = 1 WHERE `id` = 5[0m
+  [4;35;1mTeam Create (0.2ms)[0m   [0mINSERT INTO `teams` (`name`, `league_id`, `last_weeks_points`, `created_at`, `updated_at`, `wins`, `total_points`, `user_id`, `loss`, `status`) VALUES(NULL, 1, NULL, '2010-06-20 02:11:16', '2010-06-20 02:11:16', NULL, NULL, NULL, NULL, 'created')[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` LIMIT 1[0m
+  [4;35;1mTeam Update (0.3ms)[0m   [0mUPDATE `teams` SET `updated_at` = '2010-06-20 02:11:16', `created_at` = '2010-06-20 02:11:16', `league_id` = 1, `status` = 'created', `user_id` = 1 WHERE `id` = 6[0m
+  [4;36;1mTeam Create (0.2ms)[0m   [0;1mINSERT INTO `teams` (`name`, `league_id`, `last_weeks_points`, `created_at`, `updated_at`, `wins`, `total_points`, `user_id`, `loss`, `status`) VALUES(NULL, 1, NULL, '2010-06-20 02:11:16', '2010-06-20 02:11:16', NULL, NULL, NULL, NULL, 'created')[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mTeam Update (0.3ms)[0m   [0;1mUPDATE `teams` SET `updated_at` = '2010-06-20 02:11:16', `created_at` = '2010-06-20 02:11:16', `league_id` = 1, `status` = 'created', `user_id` = 1 WHERE `id` = 7[0m
+  [4;35;1mTeam Create (0.2ms)[0m   [0mINSERT INTO `teams` (`name`, `league_id`, `last_weeks_points`, `created_at`, `updated_at`, `wins`, `total_points`, `user_id`, `loss`, `status`) VALUES(NULL, 1, NULL, '2010-06-20 02:11:16', '2010-06-20 02:11:16', NULL, NULL, NULL, NULL, 'created')[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` LIMIT 1[0m
+  [4;35;1mTeam Update (0.3ms)[0m   [0mUPDATE `teams` SET `updated_at` = '2010-06-20 02:11:16', `created_at` = '2010-06-20 02:11:16', `league_id` = 1, `status` = 'created', `user_id` = 1 WHERE `id` = 8[0m
+  [4;36;1mTeam Create (0.2ms)[0m   [0;1mINSERT INTO `teams` (`name`, `league_id`, `last_weeks_points`, `created_at`, `updated_at`, `wins`, `total_points`, `user_id`, `loss`, `status`) VALUES(NULL, 1, NULL, '2010-06-20 02:11:16', '2010-06-20 02:11:16', NULL, NULL, NULL, NULL, 'created')[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mTeam Update (0.3ms)[0m   [0;1mUPDATE `teams` SET `updated_at` = '2010-06-20 02:11:16', `created_at` = '2010-06-20 02:11:16', `league_id` = 1, `status` = 'created', `user_id` = 1 WHERE `id` = 9[0m
+  [4;35;1mTeam Create (0.2ms)[0m   [0mINSERT INTO `teams` (`name`, `league_id`, `last_weeks_points`, `created_at`, `updated_at`, `wins`, `total_points`, `user_id`, `loss`, `status`) VALUES(NULL, 1, NULL, '2010-06-20 02:11:16', '2010-06-20 02:11:16', NULL, NULL, NULL, NULL, 'created')[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` LIMIT 1[0m
+  [4;35;1mTeam Update (0.3ms)[0m   [0mUPDATE `teams` SET `updated_at` = '2010-06-20 02:11:16', `created_at` = '2010-06-20 02:11:16', `league_id` = 1, `status` = 'created', `user_id` = 1 WHERE `id` = 10[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mCOMMIT[0m
+
+RuntimeError ():
+  app/controllers/leagues_controller.rb:19:in `create'
+  warden (0.10.7) [v] lib/warden/manager.rb:35:in `call'
+  warden (0.10.7) [v] lib/warden/manager.rb:34:in `catch'
+  warden (0.10.7) [v] lib/warden/manager.rb:34:in `call'
+  haml (3.0.12) [v] rails/./lib/sass/plugin/rack.rb:41:in `call'
+
+Rendered rescues/_trace (73.7ms)
+Rendered rescues/_request_and_response (1.5ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing LeaguesController#create (for 127.0.0.1 at 2010-06-19 22:13:52) [POST]
+  Parameters: {"commit"=>"Create", "action"=>"create", "authenticity_token"=>"DHWSSPsrEycLeYpEDvpSSJBwPFemUtLtp/5boYM6BX8=", "controller"=>"leagues", "league"=>{"teams_attributes"=>{"6"=>{"user_email"=>""}, "7"=>{"user_email"=>""}, "8"=>{"user_email"=>""}, "9"=>{"user_email"=>""}, "0"=>{"user_email"=>"chris.hallendy@gmail.com"}, "1"=>{"user_email"=>"shannon@yahoo.com"}, "2"=>{"user_email"=>"ben@gmail.com"}, "3"=>{"user_email"=>""}, "4"=>{"user_email"=>""}, "5"=>{"user_email"=>""}}, "start_date"=>"2010-07-06", "name"=>"My League", "length"=>"20"}}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mUser Columns (1.7ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mLeague Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `leagues`[0m
+  [4;36;1mTeam Columns (1.7ms)[0m   [0;1mSHOW FIELDS FROM `teams`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mLeague Create (0.3ms)[0m   [0;1mINSERT INTO `leagues` (`name`, `start_date`, `created_at`, `updated_at`, `manager`, `length`, `status`, `end_date`) VALUES('My League', '2010-07-06', '2010-06-20 02:13:52', '2010-06-20 02:13:52', NULL, '20', 'created', NULL)[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `users` LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `users` LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `users` LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `users` LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `users` LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `users` LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `users` LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `users` LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `users` LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `users` LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `users` LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `users` LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `users` LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `users` LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `users` LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `users` LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `users` LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `users` LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `users` LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mROLLBACK[0m
+
+SystemStackError (stack level too deep):
+  app/models/team.rb:32:in `process_user_email'
+  app/models/team.rb:32:in `process_user_email'
+  app/models/team.rb:32:in `process_user_email'
+  app/models/team.rb:32:in `process_user_email'
+  app/models/team.rb:32:in `process_user_email'
+  app/models/team.rb:32:in `process_user_email'
+  app/models/team.rb:32:in `process_user_email'
+  app/models/team.rb:32:in `process_user_email'
+  app/models/team.rb:32:in `process_user_email'
+  app/models/team.rb:32:in `process_user_email'
+  app/models/team.rb:32:in `process_user_email'
+  app/models/team.rb:32:in `process_user_email'
+  app/models/team.rb:32:in `process_user_email'
+  app/models/team.rb:32:in `process_user_email'
+  app/models/team.rb:32:in `process_user_email'
+  app/models/team.rb:32:in `process_user_email'
+  app/models/team.rb:32:in `process_user_email'
+  app/models/team.rb:32:in `process_user_email'
+  app/models/team.rb:32:in `process_user_email'
+  app/models/team.rb:32:in `process_user_email'
+  app/models/team.rb:32:in `process_user_email'
+  app/models/team.rb:32:in `process_user_email'
+  app/models/team.rb:32:in `process_user_email'
+  app/models/team.rb:32:in `process_user_email'
+  app/models/team.rb:32:in `process_user_email'
+  app/models/team.rb:32:in `process_user_email'
+  app/models/team.rb:32:in `process_user_email'
+  app/models/team.rb:32:in `process_user_email'
+  app/models/team.rb:32:in `process_user_email'
+  app/models/team.rb:32:in `process_user_email'
+  app/models/team.rb:32:in `process_user_email'
+  app/models/team.rb:32:in `process_user_email'
+  app/models/team.rb:32:in `process_user_email'
+  app/models/team.rb:32:in `process_user_email'
+  app/models/team.rb:32:in `process_user_email'
+  app/models/team.rb:32:in `process_user_email'
+  app/models/team.rb:32:in `process_user_email'
+  app/models/team.rb:32:in `process_user_email'
+  app/models/team.rb:32:in `process_user_email'
+  app/controllers/leagues_controller.rb:16:in `create'
+  warden (0.10.7) [v] lib/warden/manager.rb:35:in `call'
+  warden (0.10.7) [v] lib/warden/manager.rb:34:in `catch'
+  warden (0.10.7) [v] lib/warden/manager.rb:34:in `call'
+  haml (3.0.12) [v] rails/./lib/sass/plugin/rack.rb:41:in `call'
+
+Rendered rescues/_trace (1740.9ms)
+Rendered rescues/_request_and_response (1.5ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing LeaguesController#create (for 127.0.0.1 at 2010-06-19 22:14:33) [POST]
+  Parameters: {"commit"=>"Create", "action"=>"create", "authenticity_token"=>"DHWSSPsrEycLeYpEDvpSSJBwPFemUtLtp/5boYM6BX8=", "controller"=>"leagues", "league"=>{"teams_attributes"=>{"6"=>{"user_email"=>""}, "7"=>{"user_email"=>""}, "8"=>{"user_email"=>""}, "9"=>{"user_email"=>""}, "0"=>{"user_email"=>"chris.hallendy@gmail.com"}, "1"=>{"user_email"=>"shannon@yahoo.com"}, "2"=>{"user_email"=>"ben@gmail.com"}, "3"=>{"user_email"=>""}, "4"=>{"user_email"=>""}, "5"=>{"user_email"=>""}}, "start_date"=>"2010-07-06", "name"=>"My League", "length"=>"20"}}
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mUser Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mLeague Columns (1.8ms)[0m   [0mSHOW FIELDS FROM `leagues`[0m
+  [4;36;1mTeam Columns (1.8ms)[0m   [0;1mSHOW FIELDS FROM `teams`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mLeague Create (0.3ms)[0m   [0;1mINSERT INTO `leagues` (`name`, `start_date`, `created_at`, `updated_at`, `manager`, `length`, `status`, `end_date`) VALUES('My League', '2010-07-06', '2010-06-20 02:14:33', '2010-06-20 02:14:33', NULL, '20', 'created', NULL)[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mROLLBACK[0m
+
+RuntimeError ("chris.hallendy@gmail.com"):
+  app/models/team.rb:30:in `process_user_email'
+  app/controllers/leagues_controller.rb:16:in `create'
+  warden (0.10.7) [v] lib/warden/manager.rb:35:in `call'
+  warden (0.10.7) [v] lib/warden/manager.rb:34:in `catch'
+  warden (0.10.7) [v] lib/warden/manager.rb:34:in `call'
+  haml (3.0.12) [v] rails/./lib/sass/plugin/rack.rb:41:in `call'
+
+Rendered rescues/_trace (259.1ms)
+Rendered rescues/_request_and_response (1.4ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing LeaguesController#create (for 127.0.0.1 at 2010-06-19 22:15:49) [POST]
+  Parameters: {"commit"=>"Create", "action"=>"create", "authenticity_token"=>"DHWSSPsrEycLeYpEDvpSSJBwPFemUtLtp/5boYM6BX8=", "controller"=>"leagues", "league"=>{"teams_attributes"=>{"6"=>{"user_email"=>""}, "7"=>{"user_email"=>""}, "8"=>{"user_email"=>""}, "9"=>{"user_email"=>""}, "0"=>{"user_email"=>"chris.hallendy@gmail.com"}, "1"=>{"user_email"=>"shannon@yahoo.com"}, "2"=>{"user_email"=>"ben@gmail.com"}, "3"=>{"user_email"=>""}, "4"=>{"user_email"=>""}, "5"=>{"user_email"=>""}}, "start_date"=>"2010-07-06", "name"=>"My League", "length"=>"20"}}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;35;1mUser Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mLeague Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `leagues`[0m
+
+NoMethodError (undefined method `user_email' for {"user_email"=>"chris.hallendy@gmail.com"}:HashWithIndifferentAccess):
+  app/models/league.rb:6
+  app/controllers/leagues_controller.rb:16:in `create'
+  warden (0.10.7) [v] lib/warden/manager.rb:35:in `call'
+  warden (0.10.7) [v] lib/warden/manager.rb:34:in `catch'
+  warden (0.10.7) [v] lib/warden/manager.rb:34:in `call'
+  haml (3.0.12) [v] rails/./lib/sass/plugin/rack.rb:41:in `call'
+
+Rendered rescues/_trace (91.3ms)
+Rendered rescues/_request_and_response (2.0ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing LeaguesController#create (for 127.0.0.1 at 2010-06-19 22:21:39) [POST]
+  Parameters: {"commit"=>"Create", "action"=>"create", "authenticity_token"=>"DHWSSPsrEycLeYpEDvpSSJBwPFemUtLtp/5boYM6BX8=", "controller"=>"leagues", "league"=>{"teams_attributes"=>{"6"=>{"user_email"=>""}, "7"=>{"user_email"=>""}, "8"=>{"user_email"=>""}, "9"=>{"user_email"=>""}, "0"=>{"user_email"=>"chris.hallendy@gmail.com"}, "1"=>{"user_email"=>"shannon@yahoo.com"}, "2"=>{"user_email"=>"ben@gmail.com"}, "3"=>{"user_email"=>""}, "4"=>{"user_email"=>""}, "5"=>{"user_email"=>""}}, "start_date"=>"2010-07-06", "name"=>"My League", "length"=>"20"}}
+  [4;35;1mUser Load (0.6ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mUser Columns (1.7ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mLeague Columns (1.7ms)[0m   [0mSHOW FIELDS FROM `leagues`[0m
+  [4;36;1mTeam Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `teams`[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mROLLBACK[0m
+
+RuntimeError ():
+  app/controllers/leagues_controller.rb:19:in `create'
+  warden (0.10.7) [v] lib/warden/manager.rb:35:in `call'
+  warden (0.10.7) [v] lib/warden/manager.rb:34:in `catch'
+  warden (0.10.7) [v] lib/warden/manager.rb:34:in `call'
+  haml (3.0.12) [v] rails/./lib/sass/plugin/rack.rb:41:in `call'
+
+Rendered rescues/_trace (73.7ms)
+Rendered rescues/_request_and_response (1.4ms)
+Rendering rescues/layout (internal_server_error)

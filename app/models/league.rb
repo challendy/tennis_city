@@ -3,7 +3,7 @@ class League < ActiveRecord::Base
   has_many :matches
   has_and_belongs_to_many :users
   
-  accepts_nested_attributes_for :teams
+  accepts_nested_attributes_for :teams, :reject_if => proc { |obj| obj.blank? }
   
   include AASM
 
