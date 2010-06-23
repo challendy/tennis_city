@@ -1,27 +1,26 @@
 == Tennis City
 
-Bread Box is simple invoicing with the freelancer in mind.
+An ATP Fantasy Tennis Rails application. Allows for leagues with a maximum of 10 teams.
 
 == Setup
 
-clone the directory
+Clone the directory
 
   git clone git://github.com/challendy/tennis_city.git
 	
-change to the directory and install the test gems
+Change to the directory and install the test gems
 
   rake gems:install RAILS_ENV=test
 
-build the  MySQL databases.  The examples currently use my (you'll need it installed or
-change the database to your preference)
+Build the MySQL databases.
 
-* rake db:create
-* rake db:migrate
-* rake db:seed_fu
-* rake db:populate_current_atp_players
+	rake db:create
+	rake db:migrate
+	rake db:seed_fu
+	rake db:populate_current_atp_players
 	
-start the server
+Start the server
 
   ./script/server 
   
-  Enjoy!!!
+Enjoy!!!
