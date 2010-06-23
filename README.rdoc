@@ -1,0 +1,27 @@
+== Tennis City
+
+Bread Box is simple invoicing with the freelancer in mind.
+
+== Setup
+
+clone the directory
+
+  git clone git://github.com/challendy/tennis_city.git
+	
+change to the directory and install the test gems
+
+  rake gems:install RAILS_ENV=test
+
+build the  MySQL databases.  The examples currently use my (you'll need it installed or
+change the database to your preference)
+
+* rake db:create
+* rake db:migrate
+* rake db:seed_fu
+* rake db:populate_current_atp_players
+	
+start the server
+
+  ./script/server 
+  
+  Enjoy!!!
