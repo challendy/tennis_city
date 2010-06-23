@@ -25,3 +25,7 @@ Then /^I see "([^\"]*)"$/ do |arg1, table|
   raise "#{arg1}"
   page.should have_content(arg1)
 end
+
+When /^I want to edit my account$/ do
+  click
+end

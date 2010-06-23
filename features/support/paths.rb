@@ -10,15 +10,17 @@ module NavigationHelpers
     
     when /the home page/
       '/'
+    when /the new create_league page/
+      new_create_league_path
+
+    when /the new league page/
+      new_league_path
+      
     when /the new user registration page/
       new_user_registration_path
-
-    
-    # Add more mappings here.
-    # Here is an example that pulls values out of the Regexp:
-    #
-    #   when /^(.*)'s profile page$/i
-    #     user_profile_path(User.find_by_login($1))
+      
+    when /the account edit page/
+      edit_user_registration_path
 
     else
       raise "Can't find mapping from \"#{page_name}\" to a path.\n" +
