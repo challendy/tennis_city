@@ -3,6 +3,8 @@ class League < ActiveRecord::Base
   has_many :matches
   has_and_belongs_to_many :users
   
+  after_create :process_league_users 
+  
   accepts_nested_attributes_for :teams, :reject_if => proc { |obj| obj.blank? }
   
   include AASM
@@ -42,15 +44,14 @@ class League < ActiveRecord::Base
      # Called when record moves into the "complete" state.
    end
    
-   class << self
-     def build_new_league_teams
-       raise
-      self.users.each do |user|
-        Teams.create(:user => user)
+   private
+   
+    def process_league_users
+      users = []
+      self.teams.each do |team|
+        users << team.user        
       end
-     end
-   end
-   
-   
-   
+      self.users = users
+      self.save
+    end
 end

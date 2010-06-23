@@ -1,23 +1,18 @@
 %h2 Create New League
-- form_for @league do |f|  
-  %ul
-    = f.error_messages 
-    %li
-      = f.label "League Name"
-      = f.text_field :name
-    %li
-      = f.label "League Length in weeks"
-      = f.text_field :length    
-    %li#datepicker
-      = f.label "Start date"
-      = f.text_field :start_date
-    / %li
-    /   = f.label "End date"
-    /   = calendar_date_select_tag "end_date"
-    %li
-      = f.label "Users Email *Max of 10 users per league*"
-      #teams
-        = render 'teams', :form => f
-      / = add_user_link "Add a User"  
-    %li
-      = f.submit 'Create'
+- form_for @league do |form|  
+  = form.error_messages 
+  %p
+    = form.label "League Name"
+    = form.text_field :name
+  %p
+    = form.label "League Length in weeks"
+    = form.text_field :length    
+  %p
+    = form.label "Start date"
+    = form.text_field :start_date
+  %p
+    = form.label "Users Email *Max of 10 users per league*"
+    #teams
+      = render 'teams', :f => form
+  %p
+    = form.submit 'Create'

@@ -10,8 +10,8 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation
   
-  def current_league
-    leagues.collect{|x| x.status == "active"}
+  def leagues_status(status)
+    leagues.collect{|x| x.status == "#{status}"}
   end
   
   def self.find_user_email(email)

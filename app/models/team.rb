@@ -5,7 +5,6 @@ class Team < ActiveRecord::Base
   belongs_to :league
   has_and_belongs_to_many :players
     
-  before_create :process_user_email
   validates_presence_of :user_id, :on => :create, :message => "can't be blank"
   
   attr_accessor :user_email
@@ -26,10 +25,4 @@ class Team < ActiveRecord::Base
    def email_users
      # Called when record moves into the "confirmed" state.
    end
-
-   def process_user_email
-     raise self.user_email.inspect
-     self.user_id = User.find_user_email(self.user_email).id
-     self.save
-   end  
 end

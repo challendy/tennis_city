@@ -1,7 +1,12 @@
 class LeaguesController < ApplicationController
+  layout 'dashboard'
+  
+  def index
+    @league = League.find(:all)
+  end
   
   def show
-    
+    @league = league.find(params[:id])
   end
   
   def new
@@ -9,15 +14,17 @@ class LeaguesController < ApplicationController
     10.times do 
       @league.teams.build()
     end
-    
   end
   
   def create
-    @league = League.create(params["league"])
+    @league = current_user.leagues.new(params[:league])
+    @league.manager = current_user
     
-    
-    raise
-    @league.process_league_teams
-    
+    if @league.save!
+      flash[:notice] = "League has been successfully created! Once all the teams have been confirmed you can proceed to the draft."
+      redirect_to root_path
+    else
+      render :action => 'new'
+    end
   end
 end

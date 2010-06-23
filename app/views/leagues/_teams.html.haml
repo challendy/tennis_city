@@ -1,4 +1,5 @@
 #team
-  - form.fields_for :teams do |team_form|
-    = team_form.label "Users email:"
-    = team_form.text_field :user_email
+  - f.fields_for :teams do |team_form|
+    %p
+      = team_form.label "Users:"
+      = team_form.select :user_id, get_users
