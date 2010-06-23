@@ -25,6 +25,7 @@
 *.log
 *.sql
 *.sqlite
+*.data
 
 # OS generated files #
 ######################
@@ -51,3 +52,4 @@ tmp/sent_mails/*
 tmp/restart.txt
 config/database.yml
 *.swp
+rerun.txt

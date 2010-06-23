@@ -36,3 +36,8 @@ config.gem "thoughtbot-factory_girl", :lib => false, :source => "http://gems.git
 config.gem "httparty", :source => "http://gems.github.com"
 config.gem "fakeweb", :lib => false
 config.gem "redgreen", :lib => false
+
+#Cucumber Specific Gems
+config.gem 'cucumber-rails',   :lib => false, :version => '>=0.2.4' 
+config.gem 'database_cleaner', :lib => false, :version => '>=0.4.3' 
+config.gem 'capybara',         :lib => false, :version => '>=0.3.0' 
