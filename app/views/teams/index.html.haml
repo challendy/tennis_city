@@ -1,0 +1,16 @@
+%h1 My Teams
+
+%ul
+  %li
+    Team Name 
+    Status
+    League
+    Action Needed
+
+- @teams.each do |team|
+  %ul
+    %li
+      =h team.name
+      =h team.status
+      =h team.league.name
+      = link_to 'Confirm Team', edit_team_path(team)

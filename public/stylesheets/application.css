@@ -12,10 +12,10 @@ a {
   color: #0000FF;
 }
 
-.clear {
-  clear: both;
-  height: 0;
-  overflow: hidden;
+#content {
+	overflow:hidden;
+	min-height:400px;
+	padding:2em 5em;
 }
 
 #container {

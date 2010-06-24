@@ -1,0 +1,9 @@
+%h1 Team Confirmation
+
+- form_for(@team) do |f|
+  = f.error_messages
+  %p
+    =f.label "Team Name"
+    =f.text_field :name
+  %p
+    = f.submit 'Confirm'

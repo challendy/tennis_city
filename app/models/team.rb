@@ -17,7 +17,7 @@ class Team < ActiveRecord::Base
   aasm_state :confirmed
   aasm_state :complete
 
-#  @leauge.teams_confirmed!
+#  @leauge.team_confirmed!
   aasm_event :team_confirmed do
      transitions :to => :confirmed, :from => [:created]
    end

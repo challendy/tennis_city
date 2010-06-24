@@ -14,6 +14,10 @@ class User < ActiveRecord::Base
     leagues.collect{|x| x.status == "#{status}"}
   end
   
+  def teams_status(status)
+    teams.collect{|x| x.status == "#{status}"}    
+  end
+  
   def self.find_user_email(email)
     User.find(:first, :conditions => :email == email)
   end

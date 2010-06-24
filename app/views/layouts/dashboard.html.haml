@@ -19,15 +19,17 @@
               = link_to 'My Account', edit_user_registration_path |
               = link_to 'Sign out', destroy_user_session_path
 
-          #nav
-            %ul
-              %li
-                %a#home{:href => "/leagues"} Leagues
-              %li
-                %a#about{:href => "/teams"} Teams
-              %li
-                %a#contact{:href => "/players"} Players
-
-        #content-wrapper
+        %ul#navigation
+          %li
+            %a{ :href => "/"} News
+          %li
+            %a{ :href => "/leagues" } Leagues
+          %li
+            %a{ :href => "/teams" } Teams        
+          %li
+            %a{ :href => "/players" } Players
+        
+        #content
           = yield
-
+      #footer
+        %p Copyright &copy; 2010  All rights reserved.
