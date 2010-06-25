@@ -5,6 +5,7 @@ class DashboardController < ApplicationController
   
   def index
     if @created_teams
+      #render partial
       redirect_to(teams_path)
     end
     

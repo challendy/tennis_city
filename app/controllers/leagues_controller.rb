@@ -27,4 +27,16 @@ class LeaguesController < ApplicationController
       render :action => 'new'
     end
   end
+  
+  def update
+    @team = Team.find(params[:id])
+    if @team.update_attributes(params[:team])
+      @team.team_confirmed!
+      flash[:notice] = 'Team was successfully updated.'
+      redirect_to :controller => :dashboard, :action => :index
+    else
+      flash[:notice] = 'Update Failed, Please try again.'
+      render :action => "edit"
+    end    
+  end
 end

@@ -14,15 +14,14 @@ class Team < ActiveRecord::Base
   aasm_initial_state :created
 
   aasm_state :created
-  aasm_state :confirmed
+  aasm_state :confirmed, :exit => :check_league_status
   aasm_state :complete
 
-#  @leauge.team_confirmed!
   aasm_event :team_confirmed do
      transitions :to => :confirmed, :from => [:created]
    end
 
-   def email_users
-     # Called when record moves into the "confirmed" state.
+   def check_league_status
+     unless self.league.teams.detect{|x| x.stats == "created"}
    end
 end
