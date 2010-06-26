@@ -11,11 +11,11 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation
   
   def leagues_status(status)
-    leagues.collect{|x| x.status == "#{status}"}
+    leagues.detect{|x| x.status == "#{status}"}
   end
   
   def teams_status(status)
-    teams.collect{|x| x.status == "#{status}"}    
+    teams.detect{|x| x.status == "#{status}"}    
   end
   
   def self.find_user_email(email)

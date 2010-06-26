@@ -3,9 +3,9 @@ class League < ActiveRecord::Base
   has_many :matches
   has_and_belongs_to_many :users
   
+  accepts_nested_attributes_for :teams, :reject_if => proc { |attributes| attributes['user_id'].blank? }
+    
   after_create :process_league_users 
-  
-  accepts_nested_attributes_for :teams, :reject_if => proc { |obj| obj.blank? }
   
   include AASM
 
@@ -32,17 +32,15 @@ class League < ActiveRecord::Base
    end
    
    def email_manager
-     
+     Notifier.deliver_league_teams_confirmed(self)
+      
      # Called when record moves into the "confirmed" state.
    end
 
-   def email_teams
-     # Called when record moves into the "active" state.
+   def manager_email
+     User.find(self.manager).email
    end
-   
-   def method3
-     # Called when record moves into the "complete" state.
-   end
+
    
    private
    

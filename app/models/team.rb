@@ -14,7 +14,7 @@ class Team < ActiveRecord::Base
   aasm_initial_state :created
 
   aasm_state :created
-  aasm_state :confirmed, :exit => :check_league_status
+  aasm_state :confirmed
   aasm_state :complete
 
   aasm_event :team_confirmed do
@@ -22,7 +22,8 @@ class Team < ActiveRecord::Base
    end
 
    def check_league_status
-     unless self.league.teams.detect{|x| x.stats == "created"}
+     if self.league.teams.detect{|x| x.status == "created"}.blank?
+       self.league.teams_confirmed!
      end
    end
 end

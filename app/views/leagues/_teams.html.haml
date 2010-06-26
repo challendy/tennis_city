@@ -1,5 +1,4 @@
 #team
   - f.fields_for :teams do |team_form|
-    %p
-      = team_form.label "Users:"
-      = team_form.select :user_id, get_users
+    %p= team_form.label "Users:"
+    %p= team_form.select :user_id, get_users, { :include_blank => true }

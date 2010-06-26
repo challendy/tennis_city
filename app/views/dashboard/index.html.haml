@@ -1,4 +1,8 @@
 #dashboard
   %h2 Tenniscity Dashboard
-       
-  = link_to 'Create A New League', new_league_path, :id => 'new', :class => "button"
+  - unless @created_teams.blank?
+    %p 
+      Action needed: Click to confirm new team request.
+      = link_to "New Team Confirmation", teams_path
+  -else
+    = link_to 'Create A New League', new_league_path, :id => 'new', :class => "button"
