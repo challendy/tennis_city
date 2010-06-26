@@ -3,32 +3,33 @@
   %head
     %meta{ "http-equiv" => "content-type", "content" => "text/html;charset=UTF-8" }
     %title Chris Hallendy
-    =stylesheet_link_tag :all
+    =stylesheet_link_tag "application"
     = javascript_include_tag :all
     
-  %body#dashboard
-    #container
-      #header-wrapper
-        #header
-          - flash.each do |name, msg|
-            = content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String)
+  %body
+    #wrapper
+      #header
+        - flash.each do |name, msg|
+          = content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String)
 
-          -if user_signed_in?
-            .user_login_box
-              = "#{current_user.email} |"
-              = link_to 'My Account', edit_user_registration_path |
-              = link_to 'Sign out', destroy_user_session_path
-
-        %ul#navigation
+        -if user_signed_in?
+          .user_login_box
+            = "#{current_user.email} |"
+            = link_to 'My Account', edit_user_registration_path |
+            = link_to 'Sign out', destroy_user_session_path
+      #navigation
+        %ul
           %li
-            %a{ :href => "/"} News
+            %a{ :href => "/"} Dashboard
           %li
             %a{ :href => "/leagues" } Leagues
           %li
-            %a{ :href => "/teams" } Teams        
+            %a{ :href => "/teams" } Matchup
+          %li
+            %a{ :href => "/teams" } Teams
           %li
             %a{ :href => "/players" } Players
-        
+      #content_wrapper
         #content
           = yield
       #footer

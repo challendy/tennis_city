@@ -23,5 +23,6 @@ class Team < ActiveRecord::Base
 
    def check_league_status
      unless self.league.teams.detect{|x| x.stats == "created"}
+     end
    end
 end

@@ -4,10 +4,7 @@ class DashboardController < ApplicationController
   before_filter :initialize_dashboard  
   
   def index
-    if @created_teams
       #render partial
-      redirect_to(teams_path)
-    end
     
   end
   
