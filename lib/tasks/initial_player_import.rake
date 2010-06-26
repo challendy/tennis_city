@@ -22,7 +22,7 @@ namespace :db do
       position_moved = a[5].gsub(" ", "")
       tournaments_played = a[6].gsub(" ", "")
 
-      plyr = Player.create(:atp_rank => rank, :name => j_name, :points => j_points, :tournaments_played => tournaments_played, :country => country)
+      Player.create(:atp_rank => rank, :name => j_name, :points => j_points, :tournaments_played => tournaments_played, :country => country)
     end 
   end
 end

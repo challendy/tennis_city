@@ -20,13 +20,28 @@ namespace :db do
       position_moved = a[5].gsub(" ", "")
       tournaments_played = a[6].gsub(" ", "")
      
-      player_to_update = Player.find(:first, :conditions =>{:name => plyr.j_name})
-        unless player_to_update.blank?
-          player_to_update.atp_rank = plyr.rank
-          player_to_update.tournaments_played = plyr.tournaments_played
-          player_to_update.current_points = plyr.j_points
-          player_to_update.save
-        end
+      puts "#{j_name}"
+      player_to_update = Player.find(:first, :conditions =>{:name => j_name})
+      puts player_to_update.name
+      unless player_to_update.blank?
+        player_to_update.update_attributes(:atp_rank => rank, :tournaments_played => tournaments_played, :current_points => j_points)
+      end
     end
+    
+    
+    players = Player.find(:all)
+
+    players.each do |p|
+      old_points = p.points
+      new_points = p.current_points
+      change = new_points - old_points
+      
+      p.total_league_points = p.total_league_points + change
+      p.points = new_points
+      p.change = change
+      p.save
+    end
+
+    
   end
 end
