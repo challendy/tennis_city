@@ -21,5 +21,4 @@ class User < ActiveRecord::Base
   def self.find_user_email(email)
     User.find(:first, :conditions => :email == email)
   end
-  
 end

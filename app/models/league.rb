@@ -9,7 +9,7 @@ class League < ActiveRecord::Base
   
   include AASM
 
-  aasm_column :status # defaults to aasm_state I am using status ##Think about changing it.
+  aasm_column :status
   
   aasm_initial_state :created
   
@@ -18,7 +18,6 @@ class League < ActiveRecord::Base
   aasm_state :active, :enter => :email_teams
   aasm_state :complete, :enter => :email_teams
 
-#  @leauge.teams_confirmed!
   aasm_event :teams_confirmed do
      transitions :to => :confirmed, :from => [:created]
    end
@@ -33,16 +32,19 @@ class League < ActiveRecord::Base
    
    def email_manager
      Notifier.deliver_league_teams_confirmed(self)
-      
-     # Called when record moves into the "confirmed" state.
+     process_league_schedule
    end
 
    def manager_email
      User.find(self.manager).email
    end
-
-   
+      
    private
+     def process_league_schedule
+       teams = []
+       teams = self.teams.collect{|x| x.id}
+       Scheduler.run(teams, self.length.to_i, self.id)
+     end
    
     def process_league_users
       users = []

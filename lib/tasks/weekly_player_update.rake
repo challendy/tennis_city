@@ -1,5 +1,5 @@
 namespace :db do
-  desc "Initial db load of atp players"
+  desc "weekly update of players and pplayers points"
   task :weekly_player_update  => :environment do
     require 'nokogiri'
     require 'open-uri'
@@ -20,14 +20,12 @@ namespace :db do
       position_moved = a[5].gsub(" ", "")
       tournaments_played = a[6].gsub(" ", "")
      
-      puts "#{j_name}"
       player_to_update = Player.find(:first, :conditions =>{:name => j_name})
       puts player_to_update.name
       unless player_to_update.blank?
         player_to_update.update_attributes(:atp_rank => rank, :tournaments_played => tournaments_played, :current_points => j_points)
       end
     end
-    
     
     players = Player.find(:all)
 
@@ -41,7 +39,5 @@ namespace :db do
       p.change = change
       p.save
     end
-
-    
   end
 end

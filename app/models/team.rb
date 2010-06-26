@@ -6,15 +6,14 @@ class Team < ActiveRecord::Base
   has_and_belongs_to_many :players
     
   validates_presence_of :user_id, :on => :create, :message => "can't be blank"
-  
-  attr_accessor :user_email
-  
-  aasm_column :status # defaults to aasm_state I am using status ##Think about changing it.
+    
+  aasm_column :status
 
   aasm_initial_state :created
 
   aasm_state :created
   aasm_state :confirmed
+  aasm_state :active
   aasm_state :complete
 
   aasm_event :team_confirmed do
