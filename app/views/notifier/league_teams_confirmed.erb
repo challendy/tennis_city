@@ -1,0 +1,5 @@
+<p>Hello <%= @league.manager_email %>!</p>
+
+<p>Your new League <%= @league.name%> has just been confirmed. Follow the link below to start your Draft process!! </p>
+
+<p><%= link_to 'League Draft', league_path(@league)</p>
