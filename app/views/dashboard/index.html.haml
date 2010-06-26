@@ -1,8 +1,21 @@
-#dashboard
-  %h2 Tenniscity Dashboard
-  - unless @created_teams.blank?
-    %p 
-      Action needed: Click to confirm new team request.
-      = link_to "New Team Confirmation", teams_path
-  -else
-    = link_to 'Create A New League', new_league_path, :id => 'new', :class => "button"
+#dashboard_content
+  %h2 Dashboard
+  .dashboard
+    - unless @created_teams.blank?
+      %3.action_needed Action Needed for New Team 
+      = render :partial => 'partials/created_teams', :locals => { :teams => @created_teams }
+      
+    - unless @created_leagues.blank?
+      %h3 Created Leagues waiting for team confirmations
+      = render :partial => 'partials/created_leagues', :locals => { :leagues => @created_leagues }
+      
+    - unless @confirmed_leagues.blank?
+      %h3 Leagues in Draft Mode
+      = render :partial => 'partials/confirmed_leagues', :locals => { :leagues => @confirmed_leagues }
+
+    - unless @active_leagues.blank?
+      %h3 Leagues
+      = render :partial => 'partials/active_leagues', :locals => { :leagues => @active_leagues }
+      
+#sidebar
+  = link_to 'Create A New League', new_league_path, :id => 'new', :class => "button"

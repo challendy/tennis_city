@@ -4,20 +4,16 @@ class DashboardController < ApplicationController
   before_filter :initialize_dashboard  
   
   def index
-      #render partial
     
   end
   
-  private
-  
-  def initialize_dashboard
-    @created_leagues = current_user.leagues_status("created")
-    @confirmed_leagues = current_user.leagues_status("confirmed")
-    @active_leagues = current_user.leagues_status("active")
-    @completed_leagues = current_user.leagues_status("completed")
-    
-    @created_teams = current_user.teams_status("created")
-    @confirmed_teams = current_user.teams_status("confirmed")    
-  end
-  
+  private  
+    def initialize_dashboard
+      statuses = %w(created confirmed active completed)
+
+      statuses.each do |status|
+        instance_variable_set("@#{status}_leagues", current_user.leagues_status(status))
+        instance_variable_set("@#{status}_teams", current_user.teams_status(status))
+      end
+    end
 end

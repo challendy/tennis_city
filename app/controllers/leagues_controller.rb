@@ -2,7 +2,7 @@ class LeaguesController < ApplicationController
   layout 'dashboard'
   
   def index
-    @league = League.find(:all)
+    @league = current_user.leagues
   end
   
   def show
@@ -19,7 +19,6 @@ class LeaguesController < ApplicationController
   def create
     @league = current_user.leagues.new(params[:league])
     @league.manager = current_user
-    
     if @league.save!
       flash[:notice] = "League has been successfully created! Once all the teams have been confirmed you can proceed to the draft."
       redirect_to root_path
