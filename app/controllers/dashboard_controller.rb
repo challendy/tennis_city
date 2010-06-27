@@ -10,7 +10,6 @@ class DashboardController < ApplicationController
   private  
     def initialize_dashboard
       statuses = %w(created confirmed active completed)
-
       statuses.each do |status|
         instance_variable_set("@#{status}_leagues", current_user.leagues_status(status))
         instance_variable_set("@#{status}_teams", current_user.teams_status(status))
