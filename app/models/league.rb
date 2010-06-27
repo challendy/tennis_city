@@ -1,6 +1,7 @@
 class League < ActiveRecord::Base
   has_many :teams
   has_many :matches
+  has_many :drafts
   has_and_belongs_to_many :users
   
   accepts_nested_attributes_for :teams, :reject_if => proc { |attributes| attributes['user_id'].blank? }
@@ -33,13 +34,22 @@ class League < ActiveRecord::Base
    def email_manager
      Notifier.deliver_league_teams_confirmed(self)
      process_league_schedule
+     start_draft_process
    end
 
    def manager_email
      User.find(self.manager).email
    end
+   
+   def users_email
+     self.users.collect{|x| x.email}    
+   end
       
    private
+      def start_draft_process
+        self.draft.create
+      end
+   
      def process_league_schedule
        teams = []
        teams = self.teams.collect{|x| x.id}
