@@ -1,7 +1,7 @@
 class League < ActiveRecord::Base
   has_many :teams
   has_many :matches
-  has_many :drafts
+  has_one :draft
   has_and_belongs_to_many :users
   
   accepts_nested_attributes_for :teams, :reject_if => proc { |attributes| attributes['user_id'].blank? }
@@ -47,7 +47,7 @@ class League < ActiveRecord::Base
       
    private
       def start_draft_process
-        self.draft.create
+        self.create_draft
       end
    
      def process_league_schedule
