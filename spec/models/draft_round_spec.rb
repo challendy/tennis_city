@@ -1,6 +1,9 @@
 require 'spec_helper'
 
-describe DraftRounds do
+describe DraftRound do
+  it { should belong_to(:draft) }
+  
+  
   before(:each) do
     @valid_attributes = {
       
@@ -8,6 +11,6 @@ describe DraftRounds do
   end
 
   it "should create a new instance given valid attributes" do
-    DraftRounds.create!(@valid_attributes)
+    DraftRound.create!(@valid_attributes)
   end
 end

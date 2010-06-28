@@ -32,7 +32,7 @@ config.gem "rspec", :lib => false, :version => ">= 1.3.0"
 config.gem 'rspec-rails', :version => '>= 1.3.2', :lib => false
 config.gem "shoulda", :lib => false, :version => ">= 2.10.0", :source => "http://gems.github.com"
 config.gem "cucumber", :lib => false, :version => ">= 0.2.3"
-config.gem "thoughtbot-factory_girl", :lib => false, :source => "http://gems.github.com"
+config.gem "factory_girl", :lib => false, :source => "http://gems.github.com"
 config.gem "httparty", :source => "http://gems.github.com"
 config.gem "fakeweb", :lib => false
 config.gem "redgreen", :lib => false
