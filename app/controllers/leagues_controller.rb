@@ -38,4 +38,8 @@ class LeaguesController < ApplicationController
       render :action => "edit"
     end    
   end
+  
+  def matchups
+    @leagues_matchups = current_user.leagues_status("active")
+  end
 end

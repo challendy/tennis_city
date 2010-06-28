@@ -2,7 +2,7 @@
   %h2 Dashboard
   .dashboard
     - unless @created_teams.blank?
-      %3.action_needed Action Needed for New Team 
+      %h3.action_needed Action Needed for New Team 
       = render :partial => 'partials/created_teams', :locals => { :teams => @created_teams }
       
     - unless @created_leagues.blank?
@@ -16,6 +16,3 @@
     - unless @active_leagues.blank?
       %h3 Leagues
       = render :partial => 'partials/active_leagues', :locals => { :leagues => @active_leagues }
-      
-#sidebar
-  = link_to 'Create A New League', new_league_path, :id => 'new', :class => "button"

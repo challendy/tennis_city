@@ -1,12 +1,3 @@
-%h1
-%tr
-  %td Team Name 
-  %td Status
-  %td League
-    
-- @teams.each do |team|
-  %tr
-    %td=h team.name
-    %td=h team.status
-    %td=h team.league.name
-    = link_to 'Confirm Team', edit_team_path(team)
+%h2 My Teams
+
+List or table of users teams separated by status
