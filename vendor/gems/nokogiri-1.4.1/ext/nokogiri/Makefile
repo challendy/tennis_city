@@ -4,7 +4,7 @@ SHELL = /bin/sh
 #### Start of system configuration section. ####
 
 srcdir = .
-topdir = /usr/local/lib/ruby/1.8/i686-darwin10.0.0
+topdir = /usr/local/lib/ruby/1.8/i686-darwin9.8.0
 hdrdir = $(topdir)
 VPATH = $(srcdir):$(topdir):$(hdrdir)
 exec_prefix = $(prefix)
@@ -45,7 +45,7 @@ LIBRUBYARG_STATIC = -l$(RUBY_SO_NAME)-static
 
 RUBY_EXTCONF_H = 
 CFLAGS   =  -fno-common -D_XOPEN_SOURCE=1  -fno-common -pipe -fno-common $(cflags)  -g -DXP_UNIX -O3 -Wall -Wcast-qual -Wwrite-strings -Wconversion -Wmissing-noreturn -Winline 
-INCFLAGS = -I. -I/usr/include -I/usr/include/libxml2 -I/opt/local/include/ -I. -I/usr/local/lib/ruby/1.8/i686-darwin10.0.0 -I.
+INCFLAGS = -I. -I/usr/local/include -I/usr/local/include/libxml2 -I/usr/include -I. -I/usr/local/lib/ruby/1.8/i686-darwin9.8.0 -I.
 DEFS     = 
 CPPFLAGS = -DHAVE_XMLRELAXNGSETPARSERSTRUCTUREDERRORS -DHAVE_XMLRELAXNGSETPARSERSTRUCTUREDERRORS -DHAVE_XMLRELAXNGSETVALIDSTRUCTUREDERRORS -DHAVE_XMLSCHEMASETVALIDSTRUCTUREDERRORS -DHAVE_XMLSCHEMASETPARSERSTRUCTUREDERRORS -I/opt/local/include/ -I/opt/local/include/libxml2 -I/opt/local/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE  
 CXXFLAGS = $(CFLAGS) 
@@ -59,8 +59,8 @@ EXEEXT =
 
 RUBY_INSTALL_NAME = ruby
 RUBY_SO_NAME = ruby
-arch = i686-darwin10.0.0
-sitearch = i686-darwin10.0.0
+arch = i686-darwin9.8.0
+sitearch = i686-darwin9.8.0
 ruby_version = 1.8
 ruby = /usr/local/bin/ruby
 RUBY = $(ruby)
@@ -96,8 +96,8 @@ STATIC_LIB =
 
 BINDIR        = $(bindir)
 RUBYCOMMONDIR = $(sitedir)$(target_prefix)
-RUBYLIBDIR = /Users/challendy/Projects/tennis_city/vendor/gems/nokogiri-1.4.1/lib$(target_prefix)
-RUBYARCHDIR = /Users/challendy/Projects/tennis_city/vendor/gems/nokogiri-1.4.1/lib$(target_prefix)
+RUBYLIBDIR = /Users/challendy/Projects/myapps/tennis_city/vendor/gems/nokogiri-1.4.1/lib$(target_prefix)
+RUBYARCHDIR = /Users/challendy/Projects/myapps/tennis_city/vendor/gems/nokogiri-1.4.1/lib$(target_prefix)
 
 TARGET_SO     = $(DLLIB)
 CLEANLIBS     = $(TARGET).bundle $(TARGET).il? $(TARGET).tds $(TARGET).map
@@ -148,7 +148,7 @@ site-install-rb: install-rb
 .c.o:
 	$(CC) $(INCFLAGS) $(CPPFLAGS) $(CFLAGS) -c $<
 
-$(DLLIB): $(OBJS) Makefile
+$(DLLIB): $(OBJS)
 	@-$(RM) $@
 	$(LDSHARED) -o $@ $(OBJS) $(LIBPATH) $(DLDFLAGS) $(LOCAL_LIBS) $(LIBS)
 

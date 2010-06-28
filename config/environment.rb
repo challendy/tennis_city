@@ -23,9 +23,9 @@ Rails::Initializer.run do |config|
   config.gem 'devise', :version => '1.0.7'
   
   config.gem "rubyist-aasm", :source => "http://gems.github.com", :lib => false
-  config.gem "haml", :version => ">3.0.4", :lib => false
-  config.gem "nokogiri", :version => ">=1.4.0", :lib => false
-
+  config.gem "haml", :version => ">3.0.4"
+  config.gem "nokogiri"
+  
   # Only load the plugins named here, in the order given (default is alphabetical).
   # :all can be used as a placeholder for all plugins not explicitly named
   # config.plugins = [ :exception_notification, :ssl_requirement, :all ]
