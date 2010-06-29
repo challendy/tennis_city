@@ -22,20 +22,17 @@ config.action_controller.allow_forgery_protection    = false
 # ActionMailer::Base.deliveries array.
 config.action_mailer.delivery_method = :test
 
-# Use SQL instead of Active Record's schema dumper when creating the test database.
-# This is necessary if your schema can't be completely dumped by the schema dumper,
-# like if you have constraints or database-specific column types
-# config.active_record.schema_format = :sql
+
 
 #Gem configs
-config.gem "rspec", :lib => false, :version => ">= 1.3.0"
-config.gem 'rspec-rails', :version => '>= 1.3.2', :lib => false
-config.gem "shoulda", :lib => false, :version => ">= 2.10.0", :source => "http://gems.github.com"
-config.gem "cucumber", :lib => false, :version => ">= 0.2.3"
-config.gem "factory_girl", :lib => false, :source => "http://gems.github.com"
-config.gem "httparty", :source => "http://gems.github.com"
-config.gem "fakeweb", :lib => false
-config.gem "redgreen", :lib => false
+config.gem "rspec",                   :lib => false, :version => ">= 1.3.0"
+config.gem 'rspec-rails',             :lib => false, :version => '>= 1.3.2'
+config.gem "shoulda",                 :lib => false, :version => ">= 2.10.0"
+config.gem "cucumber",                :lib => false, :version => ">= 0.2.3"
+config.gem "thoughtbot-factory_girl", :lib => "factory_girl", :source => "http://gems.github.com"
+config.gem "httparty"
+config.gem "fakeweb"
+config.gem "redgreen"
 
 #Cucumber Specific Gems
 config.gem 'cucumber-rails',   :lib => false, :version => '>=0.2.4' 
