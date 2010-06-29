@@ -21,8 +21,21 @@ class Draft < ActiveRecord::Base
   def initialize_draft
     teams = self.league.teams.collect{|x| x.id}
     self.update_attributes(:number_of_teams => teams.length, :current_round => 0)
-    DraftProcessor.run(teams, self)
+    draft_processor(teams)
     self.start_draft!
+  end
+  
+  def draft_processor(teams) 
+    temp_round = 0
+    draft_order = teams.shuffle
+    10.times do |r|
+      r == 0 ? round = 0 : round = temp_round
+      draft_order.each do |d|
+        round += 1
+        self.draft_rounds.create(:round => round, :team_id => d)
+      end
+      temp_round = round
+    end
   end
   
   def email_teams_draft_started

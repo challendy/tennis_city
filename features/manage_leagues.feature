@@ -5,7 +5,6 @@ Feature: Manage Leagues
   
   Scenario: Create a new league
     Given I am on the new league page
-    When I fill in the following:
-      | name        | Test League |
-      | length      | 10          |
-      | start_date  | 2010-07-30  |
+    When I fill in the league form
+    And I press "Create"
+    Then I should see "League has been successfully created! Once all the teams have been confirmed you can proceed to the draft."

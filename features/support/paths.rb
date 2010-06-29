@@ -10,8 +10,6 @@ module NavigationHelpers
     
     when /the home page/
       '/'
-    when /the new create_league page/
-      new_create_league_path
 
     when /the new league page/
       new_league_path

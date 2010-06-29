@@ -20,9 +20,9 @@ class Team < ActiveRecord::Base
      transitions :to => :confirmed, :from => [:created]
    end
 
-   def check_league_status
-     if self.league.teams.detect{|x| x.status == "created"}.blank?
-       self.league.teams_confirmed!
-     end
+  def check_league_status
+   if self.league.teams.detect{|x| x.status == "created"}.blank?
+     self.league.teams_confirmed!     
    end
+  end
 end

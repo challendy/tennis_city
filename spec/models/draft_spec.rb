@@ -7,11 +7,21 @@ describe Draft do
   describe "when created" do 
     before(:each) do
       @league = Factory(:league)
-      @draft = @league.draft.create
+      @draft = @league.create_draft
     end
 
     it "should create a new instance given valid attributes" do
       @draft
+    end
+    
+    context "after create the draft should initialized" do
+      it "should process 30 draft rounds based on 3 teams with 10 players each " do
+        @draft.draft_rounds.length.should == 30
+      end 
+      
+      it "should email all the teams involved that the draft has been processed" do
+        ActionMailer::Base.deliveries.length.should == 3
+      end
     end
   end
 end

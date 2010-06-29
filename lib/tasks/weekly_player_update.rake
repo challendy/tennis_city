@@ -34,7 +34,6 @@ namespace :db do
       new_points = p.current_points
       change = new_points - old_points
       
-      p.total_league_points = p.total_league_points + change
       p.points = new_points
       p.change = change
       p.save

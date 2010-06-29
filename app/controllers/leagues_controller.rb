@@ -17,6 +17,7 @@ class LeaguesController < ApplicationController
   end
   
   def create
+    raise params.inspect
     @league = current_user.leagues.new(params[:league])
     @league.manager = current_user
     if @league.save!
