@@ -20,7 +20,7 @@ describe Draft do
       end 
       
       it "should email all the teams involved that the draft has been processed" do
-        ActionMailer::Base.deliveries.length.should == 3
+        ActionMailer::Base.deliveries.size.should == 3
       end
     end
   end

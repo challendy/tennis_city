@@ -8,17 +8,26 @@ module NavigationHelpers
   def path_to(page_name)
     case page_name
     
-    when /the home page/
+    when /the home\s?page/
       '/'
-
+      
+    when /the new user registration page/  
+      new_user_registration_path
+      
     when /the new league page/
       new_league_path
       
-    when /the new user registration page/
-      new_user_registration_path
+    when /the dashboard page/
+      root_path
       
     when /the account edit page/
       edit_user_registration_path
+          
+    # Add more mappings here.
+    # Here is an example that pulls values out of the Regexp:
+    #
+    #   when /^(.*)'s profile page$/i
+    #     user_profile_path(User.find_by_login($1))
 
     else
       raise "Can't find mapping from \"#{page_name}\" to a path.\n" +
