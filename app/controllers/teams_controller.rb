@@ -13,7 +13,7 @@ class TeamsController < ApplicationController
     @team = Team.find(params[:id])
     if @team.update_attributes(params[:team])
       @team.team_confirmed!
-      @team.check_league_status
+      @team.league.check_league_status
       flash[:notice] = 'Team was successfully updated.'
       redirect_to :controller => :dashboard, :action => :index
     else

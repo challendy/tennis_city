@@ -26,7 +26,7 @@ describe League do
       end
     end
    it "should check to see if it was the last team to be confirmed" do
-     @league.teams.last.check_league_status
+     @league.check_league_status
      @league.status.should == "confirmed"
     end    
   end
