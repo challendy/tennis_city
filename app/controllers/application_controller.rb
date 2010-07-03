@@ -8,4 +8,8 @@ class ApplicationController < ActionController::Base
   
   before_filter :authenticate_user!
   
+  def get_users
+    users = User.find(:all).collect { |user| [user.email, user.id] }
+  end
+  
 end

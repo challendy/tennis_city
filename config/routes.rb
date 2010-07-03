@@ -8,6 +8,8 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :leagues
   map.resources :teams
   map.resources :players
+  map.resources :drafts
+  
   map.connect ':controller/:action/:id'
   map.connect ':controller/:action/:id.:format'
 end

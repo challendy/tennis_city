@@ -14,6 +14,7 @@ class LeaguesController < ApplicationController
     10.times do 
       @league.teams.build
     end
+    @users = get_users
   end
   
   def create
