@@ -30,7 +30,11 @@ class League < ActiveRecord::Base
   aasm_event :league_ended do
     transitions :to => :complete, :from => [:active]
   end
-   
+  
+  def check_league_status
+    teams_confirmed! unless teams.detect{|x| x.status == "created"}  
+  end
+     
   def process_confirmed_league
     Notifier.deliver_league_teams_confirmed(self)
     process_league_schedule
@@ -38,7 +42,8 @@ class League < ActiveRecord::Base
   end
 
   def manager_email
-    User.find(self.manager).email
+    # create a meaningful error
+    User.find(self.manager).email rescue nil
   end
 
   def users_email

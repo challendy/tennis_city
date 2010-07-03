@@ -1,14 +1,13 @@
 class DashboardController < ApplicationController
   layout 'dashboard'
-  
-  before_filter :initialize_dashboard  
-  
-  def index
     
+  def index
+    initialize_dashboard
   end
   
   private  
     def initialize_dashboard
+      #constants as constants or yml file
       statuses = %w(created confirmed active completed)
       statuses.each do |status|
         instance_variable_set("@#{status}_leagues", current_user.leagues_status(status))

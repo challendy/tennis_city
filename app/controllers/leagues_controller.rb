@@ -12,12 +12,11 @@ class LeaguesController < ApplicationController
   def new
     @league = League.new
     10.times do 
-      @league.teams.build()
+      @league.teams.build
     end
   end
   
   def create
-    raise params.inspect
     @league = current_user.leagues.new(params[:league])
     @league.manager = current_user
     if @league.save!

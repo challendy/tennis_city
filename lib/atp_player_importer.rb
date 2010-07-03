@@ -6,6 +6,7 @@ require 'pp'
 class AtpPlayerImporter
   class << self
     def import
+      #yml file liek mirus importer
       doc = Nokogiri::HTML(open('http://www.atpworldtour.com/Rankings/Singles.aspx'))
     
       players = doc.css('.bioTableAlt tr').inject([]) do |players, table|
@@ -47,7 +48,7 @@ class AtpPlayerImporter
     end
     
     def process_team_points
-      teams = Team.find(:all, :conditions => :status => "active")
+      teams = Team.all :conditions => :status => "active"
       teams_weekly_points = 0
       teams.each do |t|
         t.players.each{|p| teams_weekly_points = teams_weekly_points + p.change}

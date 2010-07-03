@@ -19,10 +19,4 @@ class Team < ActiveRecord::Base
   aasm_event :team_confirmed do
      transitions :to => :confirmed, :from => [:created]
    end
-
-  def check_league_status
-   if self.league.teams.detect{|x| x.status == "created"}.blank?
-     self.league.teams_confirmed!     
-   end
-  end
 end
