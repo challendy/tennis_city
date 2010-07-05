@@ -1,0 +1,4 @@
+#Http Addresses for Nokogiri
+atp_standings:
+  url: 'http://www.atpworldtour.com/Rankings/Singles.aspx'
+    

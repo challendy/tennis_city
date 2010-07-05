@@ -9,3 +9,6 @@ Rails::Initializer.run do |config|
   config.gem "haml", :version => ">3.0.4"
   config.time_zone = 'UTC'
 end
+
+# log path constant
+IMPORT_LOG_PATH = "#{RAILS_ROOT}/public/system/"
