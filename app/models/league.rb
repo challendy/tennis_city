@@ -49,7 +49,16 @@ class League < ActiveRecord::Base
   def users_email
     self.users.collect{|x| x.email}    
   end
-      
+  
+  def current_leader
+    teams_in_rank_order.first
+  end  
+  
+  def teams_in_rank_order
+    teams
+    # Team.all(:conditions => {:league => self}, :order => 'wins DESC') 
+  end
+  
   private
   def start_draft_process
     self.create_draft

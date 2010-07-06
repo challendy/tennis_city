@@ -5,6 +5,10 @@ class TeamsController < ApplicationController
     @teams = current_user.teams
   end
   
+  def show
+    @team = Team.find(params[:id])
+  end
+  
   def edit
     @team = Team.find(params[:id])
   end

@@ -5,7 +5,8 @@ describe DashboardController do
   
   before(:each) do
     
-    current_user = Factory(:user_one)
+    @user = Factory(:user_one)
+    sign_in @user
   end
 
   describe "GET index" do

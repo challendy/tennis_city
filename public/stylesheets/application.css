@@ -109,3 +109,84 @@ body {
  color:#FFF;
 	padding:5px 0;
 }
+
+/* League Table
+-------------------------------------*/
+#active_league {
+  width:400px;
+  border: solid #E3E3E1;
+  margin-left:1em;
+  font-size: 12px; 
+  
+}
+
+#players {
+  width:600px;
+  border: solid #E3E3E1;
+  margin-left:1em;
+  font-size: 14px; 
+}
+#league_nav {
+  overflow: hidden;
+  padding: 8px 10px;
+}
+
+#league_nav li{
+  float:left;
+  margin: 0.25em;
+}
+
+
+table {
+  width:100%;
+  border: solid #E3E3E1;
+}
+
+th {
+  background: #D5D6C6;
+  border-bottom: 1px solid #ABAB9E;
+  color: black;
+  padding: 5px 4px 3px;
+  text-align: right;
+  vertical-align: bottom;
+}
+
+td {
+  color: black;
+  line-height: 130%;
+  padding: 3px 4px;
+  text-align: right;
+}
+
+tr.selected{
+  background: #F1F2ED;
+  border-bottom: 1px solid #E7E7E5;
+  border-top: 1px solid #E7E7E5;
+}
+
+/* Forms Fieldsets
+-------------------------------------*/
+label {
+display: block;
+
+}
+fieldset {
+  margin: 1.5em 0 0 0;
+  padding: 0;
+  width: 100%;
+}
+legend {
+  margin-left: 1em;
+  color: #000;
+  font-weight: bold;
+}
+fieldset ol {
+  padding: 1em 1em 0 1em;
+  list-style: none;
+}
+fieldset li {
+  padding-bottom: 1em;
+  float: left;
+  clear: left;
+  width: 100%;
+}

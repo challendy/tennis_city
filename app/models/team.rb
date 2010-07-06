@@ -19,4 +19,18 @@ class Team < ActiveRecord::Base
   aasm_event :team_confirmed do
      transitions :to => :confirmed, :from => [:created]
    end
+
+  def record
+    "#{wins}-#{losses}-#{ties}"
+  end
+  
+  def winning_percentage
+    total_games = self.wins + self.losses + self.ties
+    return self.wins / total_games
+  end
+  
+  def games_back
+    league_leader_wins = self.league.current_leader.wins
+    league_leader_wins - self.wins
+  end
 end

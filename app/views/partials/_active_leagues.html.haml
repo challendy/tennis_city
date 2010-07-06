@@ -1,1 +1,34 @@
-Active leages
+#active_league
+  #league_nav
+    %ul
+      %li Standings
+      %li Schedule
+      %li Playoffs
+  #league_teams
+    %table
+      %thead
+        %tr
+          %th Rank
+          %th Team
+          %th W-L-T
+          %th Pct
+          %th GB
+          %th Last Week
+      %tbody
+        -leagues.teams_in_rank_order.each do |team|
+          -if current_user.teams.include?(team)
+            %tr.selected
+              %td=team.id
+              %td=link_to team.name, team_path(team)
+              %td=team.record
+              %td=team.winning_percentage
+              %td=team.games_back
+              %td=team.last_weeks_points
+          -else
+            %tr
+              %td=team.id
+              %td=link_to team.name, team_path(team)
+              %td=team.record
+              %td=team.winning_percentage
+              %td=team.games_back
+              %td=team.last_weeks_points

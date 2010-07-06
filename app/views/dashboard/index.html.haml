@@ -15,4 +15,5 @@
 
     - unless @active_leagues.blank?
       %h3 Leagues
+      / -@active_leagues.each do |league|
       = render :partial => 'partials/active_leagues', :locals => { :leagues => @active_leagues }

@@ -1,17 +1,18 @@
 %h2 Atp Players
-
-.players
-  %ul
-    %li Atp Rank
-    %li Name
-    %li Country
-    %li Points
-    %li Tournaments Played
-
-  -@players.each do |player|
-    %ul
-      %li=h player.atp_rank
-      %li=link_to"#{player.name}", player_path(player)
-      %li=h player.country
-      %li=h player.points
-      %li=h player.tournaments_played
+#players
+  %table
+    %thead
+      %tr
+        %th Atp Rank
+        %th Name
+        %th Country
+        %th Points
+        %th Tournaments Played
+    %tbody
+      -@players.each do |player|
+        %tr
+          %td=h player.atp_rank
+          %td=link_to"#{player.name}", player_path(player)
+          %td=h player.country
+          %td=h player.points
+          %td=h player.tournaments_played
