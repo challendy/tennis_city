@@ -10,14 +10,13 @@ Clone the directory
 	
 Change to the directory and install the test gems
 
-  rake gems:install RAILS_ENV=test
+  RAILS_ENV=test rake gems:install
 
 Build the MySQL databases.
 
 	rake db:create
 	rake db:migrate
-	rake db:seed_fu
-	rake db:populate_current_atp_players
+	rake db:initial_player_import
 	
 Start the server
 
