@@ -1,4 +1,6 @@
 class UnlocksController < ApplicationController
+  layout 'home'
+  
   prepend_before_filter :ensure_email_as_unlock_strategy
   prepend_before_filter :require_no_authentication
   include Devise::Controllers::InternalHelpers

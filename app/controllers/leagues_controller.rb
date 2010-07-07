@@ -1,5 +1,4 @@
 class LeaguesController < ApplicationController
-  layout 'dashboard'
   
   def index
     @league = current_user.leagues

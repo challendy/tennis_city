@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+  layout 'home'
+  
   prepend_before_filter :require_no_authentication, :only => [ :new, :create ]
   include Devise::Controllers::InternalHelpers
 

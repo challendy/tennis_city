@@ -1,5 +1,4 @@
 class PlayersController < ApplicationController
-  layout "dashboard"
 
   def index
     @players = Player.all :order => 'atp_rank ASC'

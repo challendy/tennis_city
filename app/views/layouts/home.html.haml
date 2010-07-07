@@ -1,0 +1,18 @@
+!!! Strict
+%html
+  %head
+    %meta{ "http-equiv" => "content-type", "content" => "text/html;charset=UTF-8" }
+    %title Tennis City
+    = stylesheet_link_tag "home"
+    = javascript_include_tag :all
+    
+  %body
+    #wrapper
+      - flash.each do |name, msg|
+        = content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String)
+      #header
+        %h1 Tennis City
+      #content
+        = yield
+      #footer
+        %p Copyright 47Ten Studios &copy; 2010  All rights reserved.

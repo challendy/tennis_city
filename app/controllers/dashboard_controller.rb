@@ -1,5 +1,4 @@
 class DashboardController < ApplicationController
-  layout 'dashboard'
     
   def index
     initialize_dashboard

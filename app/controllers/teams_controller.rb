@@ -1,5 +1,4 @@
 class TeamsController < ApplicationController
-  layout "dashboard"
   
   def index
     @teams = current_user.teams

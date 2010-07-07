@@ -1,4 +1,6 @@
 class PasswordsController < ApplicationController
+  layout 'home'
+  
   prepend_before_filter :require_no_authentication
   include Devise::Controllers::InternalHelpers
 

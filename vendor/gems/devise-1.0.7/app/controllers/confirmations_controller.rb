@@ -1,4 +1,6 @@
 class ConfirmationsController < ApplicationController
+  layout 'home'
+  
   include Devise::Controllers::InternalHelpers
 
   # GET /resource/confirmation/new
