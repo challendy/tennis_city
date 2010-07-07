@@ -20,7 +20,7 @@ Feature: Users Authentication
   Scenario: Wanted to edit my account
       Given I am a new, authenticated user
       When I go to the account edit page
-      Then I should see the account edit form
+      Then I should see "Edit Account"
       
   Scenario: Wanted to cancel my account
     Given I am a new, authenticated user

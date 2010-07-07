@@ -24,3 +24,4 @@ namespace :rcov do
     Rake::Task["rcov:rspec"].invoke
   end
 end
+

@@ -10,10 +10,7 @@ describe DashboardController do
   end
 
   describe "GET index" do
-    it "initilizes all league and team statuses for user all" do
-      get :index
-      response.should render_template("index")
-    end
+
   end
 
 end
