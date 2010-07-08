@@ -43,6 +43,7 @@ class League < ActiveRecord::Base
 
   def manager_email
     # create a meaningful error
+    # Think about creating a proper belongs_to for manager being a type of user.
     User.find(self.manager).email rescue nil
   end
 
@@ -55,6 +56,7 @@ class League < ActiveRecord::Base
   end  
   
   def teams_in_rank_order
+    # should be a named scope in teams
     teams
     # Team.all(:conditions => {:league => self}, :order => 'wins DESC') 
   end
