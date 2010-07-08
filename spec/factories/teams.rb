@@ -1,7 +1,7 @@
 Factory.define :team do |t|
   t.total_points 0
   t.wins 0
-  t.loss 0
+  t.losses 0
   t.last_weeks_points 0
 end
 

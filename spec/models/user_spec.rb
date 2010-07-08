@@ -6,6 +6,6 @@ describe User do
   end
 
   it "should create a new instance given valid attributes" do
-    @user
+    @user.should be_valid
   end
 end

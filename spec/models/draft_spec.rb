@@ -13,7 +13,7 @@ describe Draft do
     end
 
     it "should create a new instance given valid attributes" do
-      @draft
+      @draft.should be_valid
     end
     
     context "after create the draft should initialized" do
